@@ -34,7 +34,7 @@ def response(flow):
         getRMs(data['record_materias'], 'ffrk_vault_rm')
 		
     elif (cases[flow.request.path] == 'vault_magicite'):
-        getMagicite(data['beasts'], 'ffrk_vault_magicite')
+        getVaultMagicite(data['beasts'], 'ffrk_vault_magicite')
 
 
 def getRelics(data, filename):
@@ -165,6 +165,25 @@ def getMagicite(data, filename):
 
         for elem in elems:
             f.write('{}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4]))
+
+def getVaultMagicite(data, filename):
+    elems = []
+
+    for elem in data:
+        id          = elem['beast_id']
+        name        = elem['name']
+        rarity      = elem['rarity']
+        level       = elem['level']
+
+        elems.append([id, name, rarity, level])
+
+    elems = sorted(elems, key=lambda x: (-x[3], x[0], x[1]))
+
+    with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('ID, Name, Rarity, Level\n')
+
+        for elem in elems:
+            f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3]))
 
 # def getBuddies(data, filename):
     # elems = []
