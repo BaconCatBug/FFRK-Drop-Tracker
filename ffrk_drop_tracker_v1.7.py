@@ -77,7 +77,7 @@ def response(flow):
             '22': 'Green Potion',
             '23': 'Purple Potion',
             '31': 'Ether',
-            '32': 'Orange Ether'
+            '32': 'Turbo Ether'
         }
 
         if (multi_segment):
