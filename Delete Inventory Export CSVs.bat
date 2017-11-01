@@ -1,0 +1,9 @@
+del /f ffrk_inventory_abilities.csv
+del /f ffrk_inventory_magicite.csv
+del /f ffrk_inventory_orbs.csv
+del /f ffrk_inventory_relics.csv
+del /f ffrk_inventory_rm.csv
+del /f ffrk_inventory_sb.csv
+del /f ffrk_vault_magicite.csv
+del /f ffrk_vault_relics.csv
+del /f ffrk_vault_rm.csv

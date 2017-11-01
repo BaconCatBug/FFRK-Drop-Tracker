@@ -19,7 +19,7 @@ def response(flow):
 	data = json.loads(flow.response.content.decode('utf-8-sig'))
 
 	if (cases[flow.request.path] == 'inventory_main'):
-		getRelics(data['equipments'], 'ffrk_inventory_relics0')
+		getRelics(data['equipments'], 'ffrk_inventory_relics_presub')
 		getAbilities(data['abilities'], 'ffrk_inventory_abilities')
 		getOrbs(data['materials'], 'ffrk_inventory_orbs')
 		getRMs(data['record_materias'], 'ffrk_inventory_rm')
@@ -66,12 +66,12 @@ def getRelics(data, filename):
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
 
-	with open('ffrk_inventory_relics0.csv', 'r') as reader, open('ffrk_inventory_relics.csv','w') as writer:
+	with open('ffrk_inventory_relics_presub.csv', 'r') as reader, open('ffrk_inventory_relics.csv','w') as writer:
 		for row in reader:
 			row = re.sub('(\+*,[^,]*,[^,]*,[^,]*,\ 0)', ' (Core)\\g<1>', row)
 			writer.write(row)
 	
-	os.remove("ffrk_inventory_relics0.csv")
+	os.remove("ffrk_inventory_relics_presub.csv")
 	
 def getRMs(data, filename):
 	elems = []

@@ -2,6 +2,7 @@ import json
 import time
 import re
 
+
 def response(flow):
     if len(re.findall('/get_battle_init_data', flow.request.path)) == 0:
         return
