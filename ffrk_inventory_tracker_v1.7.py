@@ -30,7 +30,7 @@ def response(flow):
 		getMagicite(data['beasts'], 'ffrk_inventory_magicite')
 
 	elif (cases[flow.request.path] == 'vault_relic'):
-		getRelics(data['equipments'], 'ffrk_vault_relics')
+		getVaultRelics(data['equipments'], 'ffrk_vault_relics_presub')
 
 	elif (cases[flow.request.path] == 'vault_rm'):
 		getRMs(data['record_materias'], 'ffrk_vault_rm')
@@ -72,6 +72,40 @@ def getRelics(data, filename):
 			writer.write(row)
 	
 	os.remove("ffrk_inventory_relics_presub.csv")
+	
+def getVaultRelics(data, filename):
+	types = {
+		1: 'Weapon',
+		2: 'Armor',
+		3: 'Accessory'
+	}
+
+	elems = []
+
+	for elem in data:
+		id			= elem['equipment_id']
+		name		= elem['name'].replace(u'＋', '+')
+		category	= elem['category_name']
+		type		= types[elem['equipment_type']]
+		rarity		= elem['rarity']
+		realm_id	= int(str(elem['series_id'])[1:3]) if elem['series_id'] > 10 else 99
+
+		elems.append([id, name, category, type, rarity, realm_id])
+
+	elems = sorted(elems, key = lambda x: (-x[4], x[5], x[1]))
+   
+	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+		f.write('ID, Item, Category, Type, Rarity, Synergy\n')
+
+		for elem in elems:
+			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
+
+	with open('ffrk_vault_relics_presub.csv', 'r') as reader, open('ffrk_vault_relics.csv','w') as writer:
+		for row in reader:
+			row = re.sub('(\+*,[^,]*,[^,]*,[^,]*,\ 0)', ' (Core)\\g<1>', row)
+			writer.write(row)
+	
+	os.remove("ffrk_vault_relics_presub.csv")
 	
 def getRMs(data, filename):
 	elems = []
