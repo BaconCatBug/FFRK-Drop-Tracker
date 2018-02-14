@@ -132,8 +132,9 @@ def getAbilities(data, filename):
 		category	= elem['category_name']
 		rarity		= elem['rarity']
 		rank		= elem['grade']
-
-		elems.append([id, name, category, rarity, rank])
+		
+		if (id != 30131091):
+			elems.append([id, name, category, rarity, rank])
 
 	elems = sorted(elems, key=lambda x: (-x[3], x[2], x[1]))
 
