@@ -22,7 +22,7 @@ def response(flow):
 		getRelics(data['equipments'], 'ffrk_inventory_relics_presub')
 		getAbilities(data['abilities'], 'ffrk_inventory_abilities')
 		getOrbs(data['materials'], 'ffrk_inventory_orbs')
-		getRMs(data['record_materias'], 'ffrk_inventory_rm')
+		# getRMs(data['record_materias'], 'ffrk_inventory_rm')
 		getSBs(data['soul_strikes'], 'ffrk_inventory_sb')
 		# getBuddies(data['buddies'], 'ffrk_buddies')
 		
@@ -32,11 +32,11 @@ def response(flow):
 	elif (cases[flow.request.path] == 'vault_relic'):
 		getVaultRelics(data['equipments'], 'ffrk_vault_relics_presub')
 
-	elif (cases[flow.request.path] == 'vault_rm'):
-		getRMs(data['record_materias'], 'ffrk_vault_rm')
+	# elif (cases[flow.request.path] == 'vault_rm'):
+		# getRMs(data['record_materias'], 'ffrk_vault_rm')
 		
-	elif (cases[flow.request.path] == 'vault_magicite'):
-		getVaultMagicite(data['beasts'], 'ffrk_vault_magicite')
+	# elif (cases[flow.request.path] == 'vault_magicite'):
+		# getVaultMagicite(data['beasts'], 'ffrk_vault_magicite')
 
 
 def getRelics(data, filename):
@@ -61,7 +61,7 @@ def getRelics(data, filename):
 	elems = sorted(elems, key = lambda x: (-x[4], x[5], x[1]))
    
 	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-		f.write('ID, Item, Category, Type, Rarity, Synergy\n')
+		f.write('#ID, Item, Category, Type, Rarity, Synergy\n')
 
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
@@ -95,7 +95,7 @@ def getVaultRelics(data, filename):
 	elems = sorted(elems, key = lambda x: (-x[4], x[5], x[1]))
    
 	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-		f.write('ID, Item, Category, Type, Rarity, Synergy\n')
+		f.write('#ID, Item, Category, Type, Rarity, Synergy\n')
 
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
@@ -107,21 +107,21 @@ def getVaultRelics(data, filename):
 	
 	os.remove("ffrk_vault_relics_presub.csv")
 	
-def getRMs(data, filename):
-	elems = []
+# def getRMs(data, filename):
+	# elems = []
 
-	for elem in data:
-		id		= elem['record_materia_id']
-		name	= elem['name']
-		elems.append([id, name])
+	# for elem in data:
+		# id		= elem['record_materia_id']
+		# name	= elem['name']
+		# elems.append([id, name])
 
-	elems = sorted(elems, key=lambda x: (x[1]))
+	# elems = sorted(elems, key=lambda x: (x[1]))
 
-	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-		f.write('ID, RM\n')
+	# with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+		# f.write('#ID, RM\n')
 
-		for elem in elems:
-			f.write('{}, {}\n'.format(elem[0], elem[1]))
+		# for elem in elems:
+			# f.write('{}, {}\n'.format(elem[0], elem[1]))
 
 def getAbilities(data, filename):
 	elems = []
@@ -139,7 +139,7 @@ def getAbilities(data, filename):
 	elems = sorted(elems, key=lambda x: (-x[3], x[2], x[1]))
 
 	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-		f.write('ID, Ability, Category, Rarity, Rank\n')
+		f.write('#ID, Ability, Category, Rarity, Rank\n')
 
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4]))
@@ -160,7 +160,7 @@ def getOrbs(data, filename):
 	elems = sorted(elems, key=lambda x: (-x[2], x[0]))
 
 	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-		f.write('ID, Orb, Rarity, Amount\n')
+		f.write('#ID, Orb, Rarity, Amount\n')
 
 		for elem in elems:
 			f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3]))
@@ -182,7 +182,7 @@ def getSBs(data, filename):
 	elems = sorted(elems, key=lambda x: (x[2], x[4], x[0]))
 
 	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-		f.write('ID, Soul Break, Character ID, Character, Type ID, Type\n')
+		f.write('#ID, Soul Break, Character ID, Character, Type ID, Type\n')
 
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
@@ -202,29 +202,29 @@ def getMagicite(data, filename):
 	elems = sorted(elems, key=lambda x: (-x[4], x[0], x[1]))
 
 	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-		f.write('ID, Name, Rarity, Level, Max Level\n')
+		f.write('#ID, Name, Rarity, Level, Max Level\n')
 
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4]))
 
-def getVaultMagicite(data, filename):
-	elems = []
+# def getVaultMagicite(data, filename):
+	# elems = []
 
-	for elem in data:
-		id		= elem['beast_id']
-		name	= elem['name']
-		rarity	= elem['rarity']
-		level	= elem['level']
+	# for elem in data:
+		# id		= elem['beast_id']
+		# name	= elem['name']
+		# rarity	= elem['rarity']
+		# level	= elem['level']
 
-		elems.append([id, name, rarity, level])
+		# elems.append([id, name, rarity, level])
 
-	elems = sorted(elems, key=lambda x: (-x[3], x[0], x[1]))
+	# elems = sorted(elems, key=lambda x: (-x[3], x[0], x[1]))
 
-	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-		f.write('ID, Name, Rarity, Level\n')
+	# with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+		# f.write('#ID, Name, Rarity, Level\n')
 
-		for elem in elems:
-			f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3]))
+		# for elem in elems:
+			# f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3]))
 
 # def getBuddies(data, filename):
 	# elems = []
@@ -263,7 +263,7 @@ def getVaultMagicite(data, filename):
 	# elems = sorted(elems, key=lambda x: (x[0], x[2], x[1]))
 
 	# with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-		# f.write('ID, Series,  Name, Job, Level, Max Level, Sphere Levels, HP, Accuracy, Attack, Defense, Magic, Resistance, Mind, Speed, Evasion\n')
+		# f.write('#ID, Series,  Name, Job, Level, Max Level, Sphere Levels, HP, Accuracy, Attack, Defense, Magic, Resistance, Mind, Speed, Evasion\n')
 
 		# for elem in elems:
 			# f.write('{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7], elem[8], elem[9], elem[10], elem[11], elem[12], elem[13], elem[14], elem[15]))
