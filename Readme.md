@@ -1,5 +1,5 @@
-Follow the install guide at https://redd.it/6vhyod or the HTML file called "Install Guide.html"
-Use the data exported with the FFRK Graphical Inventory Spreadsheet Mk3 at https://goo.gl/RH4Btx
+Follow the install guide at https://redd.it/7xmdpw or the HTML file called "Install Guide.html"
+Use the data exported with the FFRK Graphical Inventory Spreadsheet Mk3 at https://goo.gl/b2Zqb8
 
 If you wish to remove shared Soul Breaks from the Soul Break export, edit line 144 to look for "categoryId >= 3" instead of 2. Alternatively if you want to export all your characters default soul break for some reason, change it to 1.
 
