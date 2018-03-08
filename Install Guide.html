@@ -1,5 +1,3 @@
-<p>Re-posting my guide as the current one is on the cusp of being locked after 6 months, as well as updating the scripts to v1.8 to fix a bug that prevented Excel from opening the exported CSV files and a total overhaul of my spreadsheet (which I will put in it's own post).</p>
-
 <p>Want something to <em>do</em> with the data export? Try out my <a href="https://goo.gl/b2Zqb8">FFRK Graphical Inventory</a><span class="noCtrlF keyNavAnnotation" data-text="[1]" title="press 1 to open link"></span> or my <a href="https://goo.gl/RByqif">FFRK Inventory Stats and Dud Relic Finder.</a><span class="noCtrlF keyNavAnnotation" data-text="[2]" title="press 2 to open link"></span></p>
 
 <p><strong>This guide is intended to aid anyone and everyone in getting a way to display the drops of a battle without having to complete it, thus allowing for more time efficient farming of Magicite, Motes, Major Orbs, Crystals and anything else you may desire; or in getting their Final Fantasy Record Keeper inventory, Soul Breaks, abilities and orbs in a usable csv format, primarily for use with my spreadsheet <a href="https://goo.gl/b2Zqb8">here</a><span class="noCtrlF keyNavAnnotation" data-text="[3]" title="press 3 to open link"></span>.</strong></p>
@@ -7,20 +5,10 @@
 <p>But no man is island, for men are not made of rocks. Extra special thanks to the following Redditors without whom none of this would have been possible.</p>
 
 <ul>
-<li><a href="https://www.reddit.com/u/vexnon">/u/vexnon</a><span class="noCtrlF keyNavAnnotation" data-text="[4]" title="press 4 to open link"></span><span class="RESUserTag">
-				<a class="userTagLink RESUserTagImage truncateTag" title="set a tag" href="javascript:void 0"></a>
-			</span> for making the mitmproxy scripts</li>
-<li><a href="https://www.reddit.com/u/Gitpush1337">/u/Gitpush1337</a><span class="noCtrlF keyNavAnnotation" data-text="[5]" title="press 5 to open link"></span><span class="RESUserTag">
-				<a class="userTagLink RESUserTagImage truncateTag" title="set a tag" href="javascript:void 0"></a>
-			</span> for an expanded drop database csv file</li>
-<li><a href="https://www.reddit.com/u/csdx">/u/csdx</a><span class="noCtrlF keyNavAnnotation" data-text="[6]" title="press 6 to open link"></span><span class="RESUserTag">
-				<a class="userTagLink RESUserTagImage truncateTag" title="set a tag" href="javascript:void 0"></a>
-			</span> for informing me of the =Query() formula</li>
-<li>And most importantly, <a href="https://www.reddit.com/u/enlir">/u/enlir</a><span class="noCtrlF keyNavAnnotation" data-text="[7]" title="press 7 to open link"></span><span class="RESUserTag">
-				<a class="userTagLink RESUserTagImage truncateTag" title="set a tag" href="javascript:void 0"></a>
-			</span> and  <a href="https://www.reddit.com/u/MysteriousMisterP">/u/MysteriousMisterP</a><span class="noCtrlF keyNavAnnotation" data-text="[8]" title="press 8 to open link"></span><span class="RESUserTag">
-				<a class="userTagLink RESUserTagImage truncateTag" title="set a tag" href="javascript:void 0"></a>
-			</span>. These folks literally make the game playable.</li>
+<li><a href="https://www.reddit.com/u/vexnon">/u/vexnon</a><span class="noCtrlF keyNavAnnotation" data-text="[4]" title="press 4 to open link"></span> for making the mitmproxy scripts</li>
+<li><a href="https://www.reddit.com/u/Gitpush1337">/u/Gitpush1337</a><span class="noCtrlF keyNavAnnotation" data-text="[5]" title="press 5 to open link"></span> for an expanded drop database csv file</li>
+<li><a href="https://www.reddit.com/u/csdx">/u/csdx</a><span class="noCtrlF keyNavAnnotation" data-text="[6]" title="press 6 to open link"></span> for informing me of the =Query() formula</li>
+<li>And most importantly, <a href="https://www.reddit.com/u/enlir">/u/enlir</a><span class="noCtrlF keyNavAnnotation" data-text="[7]" title="press 7 to open link"></span> and  <a href="https://www.reddit.com/u/MysteriousMisterP">/u/MysteriousMisterP</a><span class="noCtrlF keyNavAnnotation" data-text="[8]" title="press 8 to open link"></span>. These folks literally make the game playable.</li>
 </ul>
 
 <p>*******************************</p>
@@ -93,15 +81,15 @@
 
 <p>7) Hold Shift and Right Click some empty space and open a command window in that folder (This is important, don't run it from the start menu). Run the top script to see drops, the bottom script to export inventory:</p>
 
-<pre><code>mitmdump -q -b xxx.xxx.xxx.xxx -s ffrk_drop_tracker_v1.8.py
+<pre><code>mitmdump -q --listen-host xxx.xxx.xxx.xxx -s ffrk_drop_tracker_v1.8.py
 </code></pre>
 
 <h2></h2>
 
-<pre><code>mitmdump -q -b xxx.xxx.xxx.xxx -s ffrk_inventory_tracker_v1.8.py
+<pre><code>mitmdump -q --listen-host xxx.xxx.xxx.xxx -s ffrk_inventory_tracker_v1.8.py
 </code></pre>
 
-<p><strong>Explanation</strong>: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "-b xxx.xxx.xxx.xxx binds the IP given to the proxy and "-s ffrk_drop_tracker_v1.8.py" means to run the script ffrk_drop_tracker_v1.8.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3.</p>
+<p><strong>Explanation</strong>: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy and "-s ffrk_drop_tracker_v1.8.py" means to run the script ffrk_drop_tracker_v1.8.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3. If you're using an old version of mitmproxy you might need to use "-b" instead of "--listen-host"</p>
 
 <p>Optionally, you can save ONE of the command lines (only one per .bat or it won't work) in a text file, rename it to whatever you want (for example "FFRKTracker.bat") and use that to launch it rather than needing to manually type it out every time. If you make a .bat you can replace xxx.xxx.xxx.xxx with %COMPUTERNAME% but sometimes this results in an incorrect IP being detected. If this happens, just change it back to a raw IP.</p>
 
@@ -157,7 +145,7 @@
 with FFRK Drop Tracker.</a><span class="noCtrlF keyNavAnnotation" data-text="[28]" title="press . then 28 and Enter to open link"></span></p></li>
 </ul>
 
-<p>Emultators that do not work:</p>
+<p>Emulators that do not work:</p>
 
 <ul>
 <li>Any MEmu 3+</li>
@@ -250,12 +238,12 @@ Go there and click "Clone or Download &gt; Download Zip" in the top right corner
 
 7) Hold Shift and Right Click some empty space and open a command window in that folder (This is important, don't run it from the start menu). Run the top script to see drops, the bottom script to export inventory:
 
-    mitmdump -q -b xxx.xxx.xxx.xxx -s ffrk_drop_tracker_v1.8.py
+    mitmdump -q --listen-host xxx.xxx.xxx.xxx -s ffrk_drop_tracker_v1.8.py
 -
-    mitmdump -q -b xxx.xxx.xxx.xxx -s ffrk_inventory_tracker_v1.8.py
+    mitmdump -q --listen-host xxx.xxx.xxx.xxx -s ffrk_inventory_tracker_v1.8.py
 	
 	
-**Explanation**: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "-b xxx.xxx.xxx.xxx binds the IP given to the proxy and "-s ffrk_drop_tracker_v1.8.py" means to run the script ffrk_drop_tracker_v1.8.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3.
+**Explanation**: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy and "-s ffrk_drop_tracker_v1.8.py" means to run the script ffrk_drop_tracker_v1.8.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3. If you're using an old version of mitmproxy you might need to use "-b" instead of "--listen-host"
 
 Optionally, you can save ONE of the command lines (only one per .bat or it won't work) in a text file, rename it to whatever you want (for example "FFRKTracker.bat") and use that to launch it rather than needing to manually type it out every time. If you make a .bat you can replace xxx.xxx.xxx.xxx with %COMPUTERNAME% but sometimes this results in an incorrect IP being detected. If this happens, just change it back to a raw IP.
 
@@ -312,6 +300,6 @@ Working Emulators:
 * [Information on how to configure Genymotion to work
  with FFRK Drop Tracker.](https://www.reddit.com/r/FFRecordKeeper/comments/6vhyod/ffrk_drop_tracker_export_your_entire_inventory/dnde6mq/)
 
-Emultators that do not work:
+Emulators that do not work:
 
-* Any MEmu 3+</textarea></div>
+* Any MEmu 3+
