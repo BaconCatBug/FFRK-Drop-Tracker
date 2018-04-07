@@ -81,12 +81,12 @@
 
 <p>7) Hold Shift and Right Click some empty space and open a command window in that folder (This is important, don't run it from the start menu). Run the top script to see drops, the bottom script to export inventory:</p>
 
-<pre><code>mitmdump -q --listen-host xxx.xxx.xxx.xxx -s ffrk_drop_tracker_v1.8.py
+<pre><code>mitmdump -q -b xxx.xxx.xxx.xxx -s ffrk_drop_tracker_v1.8.py
 </code></pre>
 
 <h2></h2>
 
-<pre><code>mitmdump -q --listen-host xxx.xxx.xxx.xxx -s ffrk_inventory_tracker_v1.8.py
+<pre><code>mitmdump -q -b xxx.xxx.xxx.xxx -s ffrk_inventory_tracker_v1.8.py
 </code></pre>
 
 <p><strong>Explanation</strong>: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy and "-s ffrk_drop_tracker_v1.8.py" means to run the script ffrk_drop_tracker_v1.8.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3. If you're using an old version of mitmproxy you might need to use "-b" instead of "--listen-host"</p>
