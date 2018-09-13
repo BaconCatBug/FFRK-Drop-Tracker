@@ -81,15 +81,15 @@
 
 <p>7) Hold Shift and Right Click some empty space and open a command window in that folder (This is important, don't run it from the start menu). Run the top script to see drops, the bottom script to export inventory:</p>
 
-<pre><code>mitmdump -q -b xxx.xxx.xxx.xxx -s ffrk_drop_tracker_v1.8.py
+<pre><code>mitmdump -q -b xxx.xxx.xxx.xxx -s FFRK_Drop_Tracker_v2.0
 </code></pre>
 
 <h2></h2>
 
-<pre><code>mitmdump -q -b xxx.xxx.xxx.xxx -s ffrk_inventory_tracker_v1.8.py
+<pre><code>mitmdump -q -b xxx.xxx.xxx.xxx -s FFRK_Inventory_Tracker_v2.0.py
 </code></pre>
 
-<p><strong>Explanation</strong>: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy and "-s ffrk_drop_tracker_v1.8.py" means to run the script ffrk_drop_tracker_v1.8.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3. If you're using an old version of mitmproxy you might need to use "-b" instead of "--listen-host"</p>
+<p><strong>Explanation</strong>: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy and "-s FFRK_Drop_Tracker_v2.0.py" means to run the script FFRK_Drop_Tracker_v2.0.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3. If you're using a newer version of mitmproxy (4.0+) you need to use "--listen-host" instead of "-b"</p>
 
 <p>Optionally, you can save ONE of the command lines (only one per .bat or it won't work) in a text file, rename it to whatever you want (for example "FFRKTracker.bat") and use that to launch it rather than needing to manually type it out every time. If you make a .bat you can replace xxx.xxx.xxx.xxx with %COMPUTERNAME% but sometimes this results in an incorrect IP being detected. If this happens, just change it back to a raw IP.</p>
 
@@ -109,7 +109,7 @@
 
 <p>&nbsp;</p>
 
-<p>To export your Inventory, run the command from step 7 with the ffrk_tracker_v1.8.py in it:</p>
+<p>To export your Inventory, run the command from step 7 with the FFRK_Inventory_Tracker_v2.0.py in it:</p>
 
 <p>10a) Click the Inventory button, then the View/Sell Items button, then the Vault Button, then each tab in the vault.</p>
 
@@ -121,7 +121,7 @@
 
 <p>&nbsp;</p>
 
-<p>To farm drops, run the command from step 7 with the ffrk_drop_tracker_v1.8.py in it:</p>
+<p>To farm drops, run the command from step 7 with the FFRK_Drop_Tracker_v2.0.py in it:</p>
 
 <p>11a) Enter a battle.</p>
 
@@ -151,9 +151,7 @@ with FFRK Drop Tracker.</a><span class="noCtrlF keyNavAnnotation" data-text="[28
 <li>Any MEmu 3+</li>
 </ul>
 </div>
-</div><div class="usertext-edit md-container" style="display: none"><div class="md"><textarea rows="1" cols="1" name="text" class="">Re-posting my guide as the current one is on the cusp of being locked after 6 months, as well as updating the scripts to v1.8 to fix a bug that prevented Excel from opening the exported CSV files and a total overhaul of my spreadsheet (which I will put in it's own post).
-
-Want something to *do* with the data export? Try out my [FFRK Graphical Inventory](https://goo.gl/b2Zqb8) or my [FFRK Inventory Stats and Dud Relic Finder.](https://goo.gl/RByqif)
+</div><div class="usertext-edit md-container" style="display: none"><div class="md"><textarea rows="1" cols="1" name="text" class="">Want something to *do* with the data export? Try out my [FFRK Graphical Inventory](https://goo.gl/b2Zqb8) or my [FFRK Inventory Stats and Dud Relic Finder.](https://goo.gl/RByqif)
 
 **This guide is intended to aid anyone and everyone in getting a way to display the drops of a battle without having to complete it, thus allowing for more time efficient farming of Magicite, Motes, Major Orbs, Crystals and anything else you may desire; or in getting their Final Fantasy Record Keeper inventory, Soul Breaks, abilities and orbs in a usable csv format, primarily for use with my spreadsheet [here](https://goo.gl/b2Zqb8).**
 

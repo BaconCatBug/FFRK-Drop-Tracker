@@ -20,23 +20,23 @@ def response(flow):
 
 	if (cases[flow.request.path] == 'inventory_main'):
 		getRelics(data['equipments'], 'ffrk_inventory_relics_presub')
-		getAbilities(data['abilities'], 'ffrk_inventory_abilities')
-		getOrbs(data['materials'], 'ffrk_inventory_orbs')
-		# getRMs(data['record_materias'], 'ffrk_inventory_rm')
-		getSBs(data['soul_strikes'], 'ffrk_inventory_sb')
-		# getBuddies(data['buddies'], 'ffrk_buddies')
+		getAbilities(data['abilities'], '4-FFRK-Abilities')
+		getOrbs(data['materials'], '6-FFRK-Orbs')
+		# getRMs(data['record_materias'], 'X-FFRK-Inventory-Record_Materia')
+		getSBs(data['soul_strikes'], '2-FFRK-Soul_Breaks')
+		# getBuddies(data['buddies'], 'X-FFRK-Characters')
 		
 	elif (cases[flow.request.path] == 'magicite_main'):
-		getMagicite(data['beasts'], 'ffrk_inventory_magicite')
+		getMagicite(data['beasts'], '5-FFRK-Magicite')
 
 	elif (cases[flow.request.path] == 'vault_relic'):
 		getVaultRelics(data['equipments'], 'ffrk_vault_relics_presub')
 
 	# elif (cases[flow.request.path] == 'vault_rm'):
-		# getRMs(data['record_materias'], 'ffrk_vault_rm')
+		# getRMs(data['record_materias'], 'X-FFRK-Vault-Record_Materia')
 		
 	# elif (cases[flow.request.path] == 'vault_magicite'):
-		# getVaultMagicite(data['beasts'], 'ffrk_vault_magicite')
+		# getVaultMagicite(data['beasts'], 'X-FFRK-Vault-Magicite')
 
 
 def getRelics(data, filename):
@@ -66,7 +66,7 @@ def getRelics(data, filename):
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
 
-	with open('ffrk_inventory_relics_presub.csv', 'r') as reader, open('ffrk_inventory_relics.csv','w') as writer:
+	with open('ffrk_inventory_relics_presub.csv', 'r') as reader, open('1-FFRK-Inventory-Relics.csv','w') as writer:
 		for row in reader:
 			row = re.sub('(\+*,[^,]*,[^,]*,[^,]*,\ 0)', ' (Core)\\g<1>', row)
 			writer.write(row)
@@ -100,7 +100,7 @@ def getVaultRelics(data, filename):
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
 
-	with open('ffrk_vault_relics_presub.csv', 'r') as reader, open('ffrk_vault_relics.csv','w') as writer:
+	with open('ffrk_vault_relics_presub.csv', 'r') as reader, open('3-FFRK-Vault-Relics.csv','w') as writer:
 		for row in reader:
 			row = re.sub('(\+*,[^,]*,[^,]*,[^,]*,\ 0)', ' (Core)\\g<1>', row)
 			writer.write(row)

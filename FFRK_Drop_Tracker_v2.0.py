@@ -47,7 +47,7 @@ def response(flow):
     multi_segment = False
 
     if len(results['drops']):
-        with open('ffrk_drop_tracker_db_do_not_delete.csv') as f:
+        with open('FFRK_Drop_Tracker_Database_Do_Not_Delete.csv') as f:
             lines    = f.read().splitlines()[1:]
             drop_ids = {x.split(',')[0]: x.split(',')[1] for x in lines}
 
