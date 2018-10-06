@@ -66,7 +66,7 @@ def getRelics(data, filename):
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
 
-	with open('ffrk_inventory_relics_presub.csv', 'r') as reader, open('1-FFRK-Inventory-Relics.csv','w') as writer:
+	with open('ffrk_inventory_relics_presub.csv', 'r') as reader, open('1-FFRK-Inventory-Relics.csv','w', encoding="utf-8") as writer:
 		for row in reader:
 			row = re.sub('(\+*,[^,]*,[^,]*,[^,]*,\ 0)', ' (Core)\\g<1>', row)
 			writer.write(row)
@@ -100,7 +100,7 @@ def getVaultRelics(data, filename):
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
 
-	with open('ffrk_vault_relics_presub.csv', 'r') as reader, open('3-FFRK-Vault-Relics.csv','w') as writer:
+	with open('ffrk_vault_relics_presub.csv', 'r') as reader, open('3-FFRK-Vault-Relics.csv','w', encoding="utf-8") as writer:
 		for row in reader:
 			row = re.sub('(\+*,[^,]*,[^,]*,[^,]*,\ 0)', ' (Core)\\g<1>', row)
 			writer.write(row)
