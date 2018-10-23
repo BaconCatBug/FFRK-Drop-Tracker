@@ -4,6 +4,7 @@ del /f 3-FFRK-Vault-Relics.csv
 del /f 4-FFRK-Abilities.csv
 del /f 5-FFRK-Magicite.csv
 del /f 6-FFRK-Orbs.csv
+del /f 7-FFRK-Legend_Materia.csv
 del /f X-FFRK-Inventory-Record_Materia.csv
 del /f X-FFRK-Characters.csv
 del /f X-FFRK-Vault-Record_Materia.csv
