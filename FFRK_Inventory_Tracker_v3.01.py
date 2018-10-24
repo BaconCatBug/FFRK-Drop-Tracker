@@ -48,10 +48,10 @@ def response(flow):
 		getOrbs(data['materials'], '6-FFRK-Orbs')
 		#getRMs(data['record_materias'], 'X-FFRK-Inventory-Record_Materia')
 
-	elif (cases[flow.request.path] == 'vault_rm'):
+	#elif (cases[flow.request.path] == 'vault_rm'):
 		#getRMs(data['record_materias'], 'X-FFRK-Vault-Record_Materia')
 		
-	elif (cases[flow.request.path] == 'vault_magicite'):
+	#elif (cases[flow.request.path] == 'vault_magicite'):
 		#getVaultMagicite(data['beasts'], 'X-FFRK-Vault-Magicite')
 
 
