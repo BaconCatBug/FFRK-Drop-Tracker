@@ -24,7 +24,7 @@ def response(flow):
 	data = json.loads(flow.response.content.decode('utf-8-sig'))
 
 	if (cases[flow.request.path] == 'inventory_main'):
-		getRelics(data['equipments'], 'ffrk_inventory_relics_presub')
+		getRelics(data['equipments'], '1-FFRK-Inventory-Relics')
 		getSBs(data['soul_strikes'], '2-FFRK-Soul_Breaks')
 		getAbilities(data['abilities'], '4-FFRK-Abilities')
 		getOrbs(data['materials'], '6-FFRK-Orbs')
@@ -36,7 +36,7 @@ def response(flow):
 		getMagicite(data['beasts'], '5-FFRK-Magicite')
 
 	elif (cases[flow.request.path] == 'vault_relic'):
-		getVaultRelics(data['equipments'], 'ffrk_vault_relics_presub')
+		getVaultRelics(data['equipments'], '3-FFRK-Vault-Relics.csv')
 
 	elif (cases[flow.request.path] == 'buddy_main'):
 		getSBs(data['soul_strikes'], '2-FFRK-Soul_Breaks')
@@ -84,13 +84,6 @@ def getRelics(data, filename):
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
 
-	with open('ffrk_inventory_relics_presub.csv', 'r', encoding="utf-8") as reader, open('1-FFRK-Inventory-Relics.csv','w', encoding="utf-8") as writer:
-		for row in reader:
-			if japan != 1:
-				row = re.sub('(\+*,[^,]*,[^,]*,[^,]*,[^,]*,\ 0)', ' (Core)\\g<1>', row)
-			writer.write(row)
-	
-	os.remove("ffrk_inventory_relics_presub.csv")
 	
 def getVaultRelics(data, filename):
 	types = {
@@ -121,14 +114,8 @@ def getVaultRelics(data, filename):
 		for elem in elems:
 			f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
 
-	with open('ffrk_vault_relics_presub.csv', 'r', encoding="utf-8") as reader, open('3-FFRK-Vault-Relics.csv','w', encoding="utf-8") as writer:
-		for row in reader:
-			if japan != 1:
-				row = re.sub('(\+*,[^,]*,[^,]*,[^,]*,[^,]*,\ 0)', ' (Core)\\g<1>', row)
-			writer.write(row)
-	
-	os.remove("ffrk_vault_relics_presub.csv")
-	
+
+
 def getRMs(data, filename):
 	elems = []
 

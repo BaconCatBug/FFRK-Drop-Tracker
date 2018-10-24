@@ -1,3 +1,0 @@
-Edit the variable at the top of FFRK_Inventory_Tracker_v3.00.py to say "japan=1" instead of "japan=0".
-
-This skips some Global only code.
