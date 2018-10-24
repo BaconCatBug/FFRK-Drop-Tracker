@@ -205,7 +205,7 @@ def getSBs(data, filename):
 		else:
 			category	= elem['soul_strike_category_name'].title() 
 
-		if (categoryId >= 2) and (charId >= 10100000 or charId == 10000200 or charId == 0):
+		if (categoryId >= 2) and (charId >= 10000000 or charId == 0):
 			elems.append([id, name, charId, char, categoryId, category])
 
 	elems = sorted(elems, key=lambda x: (x[2], x[4], x[0]))
