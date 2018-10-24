@@ -1,2 +1,2 @@
 title FFRK Inventory Exporter
-mitmdump -b 000.000.000.000 -s FFRK_Inventory_Tracker_v3.02.py
+mitmdump -b 000.000.000.000 -s FFRK_Inventory_Tracker_v3.03.py
