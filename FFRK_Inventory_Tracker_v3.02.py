@@ -36,7 +36,7 @@ def response(flow):
 		getMagicite(data['beasts'], '5-FFRK-Magicite')
 
 	elif (cases[flow.request.path] == 'vault_relic'):
-		getVaultRelics(data['equipments'], '3-FFRK-Vault-Relics.csv')
+		getVaultRelics(data['equipments'], '3-FFRK-Vault-Relics')
 
 	elif (cases[flow.request.path] == 'buddy_main'):
 		getSBs(data['soul_strikes'], '2-FFRK-Soul_Breaks')
