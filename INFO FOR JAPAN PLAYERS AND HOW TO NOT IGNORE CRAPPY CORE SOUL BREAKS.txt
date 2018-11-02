@@ -1,0 +1,7 @@
+Japan:
+Edit the variable at the top of FFRK_Inventory_Tracker_v3.xx.py to say "japan=1" instead of "japan=0".
+
+This skips some Global only code.
+
+Crappy Core Soul Breaks:
+Edit the variable at the top of FFRK_Inventory_Tracker_v3.xx.py to say "ignore_crappy_core_soul_breaks=0".
