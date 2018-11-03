@@ -6,6 +6,7 @@ import os
 
 japan=0
 ignore_crappy_core_soul_breaks=1
+ignore_three_star_and_lower_relics=1
 
 def response(flow):
 	cases = {
@@ -83,9 +84,12 @@ def getRelics(data, filename):
 		f.write('#ID, Item, Category, Category_id, Type, Type_id, Rarity, Synergy\n')
 
 		for elem in elems:
-			f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
+			if ignore_three_star_and_lower_relics == 1:
+				if elem[6] > 3:
+					f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
+			else:
+				f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
 
-	
 def getVaultRelics(data, filename):
 	types = {
 		1: 'Weapon',
@@ -113,8 +117,11 @@ def getVaultRelics(data, filename):
 		f.write('#ID, Item, Category, Category_id, Type, Type_id, Rarity, Synergy\n')
 
 		for elem in elems:
-			f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
-
+			if ignore_three_star_and_lower_relics == 1:
+				if elem[6] > 3:
+					f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
+			else:
+				f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
 
 
 def getRMs(data, filename):
