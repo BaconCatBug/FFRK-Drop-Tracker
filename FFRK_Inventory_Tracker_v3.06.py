@@ -1,20 +1,20 @@
 # coding=utf-8
 
 import json
-import re
 import os
 
 japan=0
 ignore_crappy_core_soul_breaks=1
 ignore_three_star_and_lower_relics=1
+soul_break_export_level=2
 
+print("Enter your Item Inventory, and then your Vault, to export all data.")
 def response(flow):
 	cases = {
-		'/dff/party/list': 'inventory_main',
-		'/dff/party/list_equipment': 'inventory_main',
-		'/dff/party/list_buddy': 'buddy_main',
-		'/dff/party/list_other': 'other_main',
-		'/dff/beast/list': 'magicite_main',
+		'/dff/party/list_equipment': 'inventory_relics',
+		'/dff/party/list_other': 'list_other',
+		'/dff/party/list_buddy': 'soul_breaks',
+		'/dff/beast/list': 'main_magicite',
 		'/dff/warehouse/get_equipment_list': 'vault_relic',
 		'/dff/warehouse/get_record_materia_list': 'vault_rm',
 		'/dff/warehouse/get_beast_list': 'vault_magicite'
@@ -25,27 +25,21 @@ def response(flow):
 
 	data = json.loads(flow.response.content.decode('utf-8-sig'))
 
-	if (cases[flow.request.path] == 'inventory_main'):
+	if (cases[flow.request.path] == 'inventory_relics'):
 		getRelics(data['equipments'], '1-FFRK-Inventory-Relics')
-		getSBs(data['soul_strikes'], '2-FFRK-Soul_Breaks')
-		getAbilities(data['abilities'], '4-FFRK-Abilities')
-		getOrbs(data['materials'], '6-FFRK-Orbs')
-		getLMs(data['legend_materias'], '7-FFRK-Legend_Materia')
-		#getRMs(data['record_materias'], 'X-FFRK-Inventory-Record_Materia')
-		#getBuddies(data['buddies'], 'X-FFRK-Characters')
 		
-	elif (cases[flow.request.path] == 'magicite_main'):
+	elif (cases[flow.request.path] == 'main_magicite'):
 		getMagicite(data['beasts'], '5-FFRK-Magicite')
 
 	elif (cases[flow.request.path] == 'vault_relic'):
 		getVaultRelics(data['equipments'], '3-FFRK-Vault-Relics')
 
-	elif (cases[flow.request.path] == 'buddy_main'):
+	elif (cases[flow.request.path] == 'soul_breaks'):
 		getSBs(data['soul_strikes'], '2-FFRK-Soul_Breaks')
 		getLMs(data['legend_materias'], '7-FFRK-Legend_Materia')
 		#getBuddies(data['buddies'], 'X-FFRK-Characters')
 		
-	elif (cases[flow.request.path] == 'other_main'):
+	elif (cases[flow.request.path] == 'list_other'):
 		getAbilities(data['abilities'], '4-FFRK-Abilities')
 		getOrbs(data['materials'], '6-FFRK-Orbs')
 		#getRMs(data['record_materias'], 'X-FFRK-Inventory-Record_Materia')
@@ -196,7 +190,7 @@ def getSBs(data, filename):
 		8: 'Chain',
 		9: 'Arcane Overstrike',
 		10: 'Glint',
-		11: '???',
+		11: 'Awakening',
 		12: '???',
 		13: '???'
 	}
@@ -214,10 +208,10 @@ def getSBs(data, filename):
 			category	= elem['soul_strike_category_name'].title() 
 
 		if ignore_crappy_core_soul_breaks==1:
-			if (categoryId >= 2) and (charId==10000200 or charId >= 10004000 or charId == 0):
+			if (categoryId >= soul_break_export_level) and (charId==10000200 or charId >= 10004000 or charId == 0):
 				elems.append([id, name, charId, char, categoryId, category])
 		else:	
-			if (categoryId >= 2) and (charId >= 10000000 or charId == 0):
+			if (categoryId >= soul_break_export_level) and (charId >= 10000000 or charId == 0):
 				elems.append([id, name, charId, char, categoryId, category])
 
 	elems = sorted(elems, key=lambda x: (x[2], x[4], x[0]))
@@ -281,6 +275,8 @@ def getBuddies(data, filename):
 			realm = 'FFT'
 		elif realm_id == 60:
 			realm = 'Type-0'
+		elif realm_id == 70:
+			realm = 'KH'
 		elif realm_id == 90:
 			realm = 'Beyond'
 		else:

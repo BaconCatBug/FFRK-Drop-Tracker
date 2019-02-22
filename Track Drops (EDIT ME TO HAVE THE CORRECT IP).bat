@@ -1,2 +1,2 @@
 title FFRK Drop Tracker
-mitmdump -q -b 000.000.000.000 -s FFRK_Drop_Tracker_v3.05.py
+mitmdump -q --listen-host xxx.xxx.xxx.xxx -s ffrk_drop_tracker_v3.06.py

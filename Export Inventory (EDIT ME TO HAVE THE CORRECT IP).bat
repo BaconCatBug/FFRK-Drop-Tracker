@@ -1,2 +1,2 @@
 title FFRK Inventory Exporter
-mitmdump -b 000.000.000.000 -s FFRK_Inventory_Tracker_v3.05.py
+mitmdump -q --listen-host xxx.xxx.xxx.xxx -s ffrk_inventory_tracker_v3.06.py 

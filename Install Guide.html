@@ -39,7 +39,7 @@
 
 <p>&nbsp;</p>
 
-<p>1) Go to <a href="https://mitmproxy.org/">https://mitmproxy.org/</a><span class="noCtrlF keyNavAnnotation" data-text="[11]" title="press . then 11 and Enter to open link"></span> and click the "latest releases" link. <a href="http://prntscr.com/ff9yj1">http://prntscr.com/ff9yj1</a><span class="noCtrlF keyNavAnnotation" data-text="[12]" title="press . then 12 and Enter to open link"></span> and download the latest windows installer <a href="http://prntscr.com/ff9yn9">http://prntscr.com/ff9yn9</a><span class="noCtrlF keyNavAnnotation" data-text="[13]" title="press . then 13 and Enter to open link"></span></p>
+<p>1) Go to <a href="https://mitmproxy.org/">https://mitmproxy.org/</a><span class="noCtrlF keyNavAnnotation" data-text="[11]" title="press . then 11 and Enter to open link"></span> and click the "Download Windows Installer" link. You must use v4.0.4 or higher</p>
 
 <p>&nbsp;</p>
 
@@ -59,12 +59,12 @@
 
 <p>Global:</p>
 
-<pre><code>127.0.0.1,lcd-prod.appspot.com,live.chartboost.com,android.clients.google.com,googleapis.com,app.adjust.io
+<pre><code>127.0.0.1,lcd-prod.appspot.com,live.chartboost.com,android.clients.google.com,googleapis.com,app.adjust.io,android.googleapis.com
 </code></pre>
 
 <p>Japan:</p>
 
-<pre><code>127.0.0.1,lcd-prod.appspot.com,live.chartboost.com,android.clients.google.com,googleapis.com,ssl.sp.mbga-platform.jp,ssl.sp.mbga.jp,app.adjust.io
+<pre><code>127.0.0.1,lcd-prod.appspot.com,live.chartboost.com,android.clients.google.com,googleapis.com,ssl.sp.mbga-platform.jp,ssl.sp.mbga.jp,app.adjust.io,android.googleapis.com
 </code></pre>
 
 <p><strong>IMPORTANT NOTE:</strong> Once you set up your emulator to point at the proxy, it will need to be running whenever you load up the game on that emulator.</p>
@@ -81,15 +81,15 @@
 
 <p>7) Hold Shift and Right Click some empty space and open a command window in that folder (This is important, don't run it from the start menu). Run the top script to see drops, the bottom script to export inventory:</p>
 
-<pre><code>mitmdump -q -b xxx.xxx.xxx.xxx -s FFRK_Drop_Tracker_v3.02.py
+<pre><code>mitmdump -q --listen-host  xxx.xxx.xxx.xxx -s FFRK_Drop_Tracker_v3.06.py
 </code></pre>
 
 <h2></h2>
 
-<pre><code>mitmdump -q -b xxx.xxx.xxx.xxx -s FFRK_Inventory_Tracker_v3.02.py
+<pre><code>mitmdump -q --listen-host  xxx.xxx.xxx.xxx -s FFRK_Inventory_Tracker_v3.06.py
 </code></pre>
 
-<p><strong>Explanation</strong>: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy and "-s FFRK_Drop_Tracker_v3.02.py" means to run the script FFRK_Drop_Tracker_v3.02.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3. If you're using a newer version of mitmproxy (4.0+) you need to use "--listen-host" instead of "-b"</p>
+<p><strong>Explanation</strong>: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy and "-s FFRK_Drop_Tracker_v3.06.py" means to run the script FFRK_Drop_Tracker_v3.02.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3. If you're using a newer version of mitmproxy (4.0+) you need to use "--listen-host" instead of "-b"</p>
 
 <p>Optionally, you can save ONE of the command lines (only one per .bat or it won't work) in a text file, rename it to whatever you want (for example "FFRKTracker.bat") and use that to launch it rather than needing to manually type it out every time. If you make a .bat you can replace xxx.xxx.xxx.xxx with %COMPUTERNAME% but sometimes this results in an incorrect IP being detected. If this happens, just change it back to a raw IP.</p>
 
@@ -138,7 +138,7 @@
 <p>Working Emulators:</p>
 
 <ul>
-<li><p>Nox App Player (v5.0.0.1 and above. v6.0.1.1)  <a href="https://www.bignox.com/">https://www.bignox.com/</a><span class="noCtrlF keyNavAnnotation" data-text="[26]" title="press . then 26 and Enter to open link"></span></p></li>
+<li><p>Nox App Player (v5.0.0.1 and above. v6.0.1.1, v6.2.6.3)  <a href="https://www.bignox.com/">https://www.bignox.com/</a><span class="noCtrlF keyNavAnnotation" data-text="[26]" title="press . then 26 and Enter to open link"></span></p></li>
 <li><p>Nox App Player (3.8.3.1)</p></li>
 <li><p>MEmu (2.9.6.1) <a href="http://www.memuplay.com/blog/index.php/2017/03/03/memu-2-9-6-is-released/">http://www.memuplay.com/blog/index.php/2017/03/03/memu-2-9-6-is-released/</a><span class="noCtrlF keyNavAnnotation" data-text="[27]" title="press . then 27 and Enter to open link"></span></p></li>
 <li><p><a href="https://www.reddit.com/r/FFRecordKeeper/comments/6vhyod/ffrk_drop_tracker_export_your_entire_inventory/dnde6mq/">Information on how to configure Genymotion to work
@@ -151,153 +151,3 @@ with FFRK Drop Tracker.</a><span class="noCtrlF keyNavAnnotation" data-text="[28
 <li>Any MEmu 3+</li>
 </ul>
 </div>
-</div><div class="usertext-edit md-container" style="display: none"><div class="md"><textarea rows="1" cols="1" name="text" class="">Want something to *do* with the data export? Try out my [FFRK Graphical Inventory](https://goo.gl/b2Zqb8) or my [FFRK Inventory Stats and Dud Relic Finder.](https://goo.gl/RByqif)
-
-**This guide is intended to aid anyone and everyone in getting a way to display the drops of a battle without having to complete it, thus allowing for more time efficient farming of Magicite, Motes, Major Orbs, Crystals and anything else you may desire; or in getting their Final Fantasy Record Keeper inventory, Soul Breaks, abilities and orbs in a usable csv format, primarily for use with my spreadsheet [here](https://goo.gl/b2Zqb8).**
-
-But no man is island, for men are not made of rocks. Extra special thanks to the following Redditors without whom none of this would have been possible.
-
-* /u/vexnon for making the mitmproxy scripts
-* /u/Gitpush1337 for an expanded drop database csv file
-* /u/csdx for informing me of the =Query() formula
-* And most importantly, /u/enlir and  /u/MysteriousMisterP. These folks literally make the game playable.
-
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
-**IMPORTANT PREPARATION START**
-
-**PLEASE NOTE THAT AN EMULATOR IS NOT MANDATORY TO USE EITHER TOOL, IT'S JUST EASIER. YOU CAN SET UP A PROXY ON YOUR LOCAL NETWORK AND SET YOUR PHONE TO CONNECT TO THE PROXY.**
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
-* The very first thing you need to do is make sure that CPU Virtualisation is enabled/supported by your PC. Without it, any form of android emulation is going to run slower than molasses uphill at the South Pole.
-
-* Next, ensure your game is linked to your Google Play account. This will allow you to swap seamlessly between your phone and PC.
-
-* Install an Android Emulator of your choice. However, several emulators recently have been not respecting the proxy bypass settings for localhost. This will cause any attempt to connect via a proxy to eat shit and die. So far I can confirm that Nox App Player is the best emulator to use for this, while an old version of MEmu (2.9.6.1) will work. Please let people know in the comments if an emulator works for you and what the version number is. On a personal note I use Nox 5.0.0.1
-
-* Click on the Settings shortcut, scroll down to "Date and Time", disable "Automatic Time Zone" (although keep "Automatic Date and Time") and manually pick your location in "Select Time Zone".
-
-* If you have a non-English keyboard layout, you may need to change the keyboard language in the "Language and Input" section of the settings panel or as a last resort clicking the "Default" setting there and disabling the physical keyboard altogether.
-
-* Open Google Play store, click the top left button, go to "My Apps" and run any updates needed. Then search for and install "Google Play Games" and then "Final Fantasy Record Keeper". **The order is important.**
-
-* If for some reason FFRK isn't showing on the app store because DeNA is too restrictive on it's compatible devices setting, install it manually [with the APK from APKPure](https://apkpure.com/final-fantasy-record-keeper/com.dena.west.FFRK/).
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
-**IMPORTANT PREPARATION END**
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
-0) Install the x86 version of the Visual C++ Redistributable for Visual Studio 2015 https://www.microsoft.com/en-us/download/details.aspx?id=48145
-
-&amp;nbsp;
-
-1) Go to https://mitmproxy.org/ and click the "latest releases" link. http://prntscr.com/ff9yj1 and download the latest windows installer http://prntscr.com/ff9yn9
-
-&amp;nbsp;
-
-2) Run the installer, clicking next until the final window. Uncheck "run the ui" or close it if it did run.
-
-&amp;nbsp;
-
-3) Find your local IP and write it down somewhere. There are many ways to do this. If you're savvy enough to do it with ipconfig /all, do so. For the non-tech savvy, you can use this site, you want the top IP http://prntscr.com/feuhx6 https://www.whatismybrowser.com/detect/what-is-my-local-ip-address
-
-&amp;nbsp;
-
-4) Fire up your Android Emulator. Click "Settings", then "Wifi". If it says "Connected via wifi assistant", toggle the wifi off and on, then click to connect to the network. Long press the network, click "Modify Network", Click "Advanced Options", click on the "None" under Proxy and change it to "Manual". http://prntscr.com/feujr2
-
-&amp;nbsp;
-
-5) Set the Proxy hostname to the IP noted down before. Set the port to 8080 (Yes you have to type it in anyway). In the "Bypass proxy for" box, copy and paste one of the following without quotes. If the "Save" button is greyed out, check for erroneous spaces. http://prntscr.com/feul26
-
-Global:
-
-    127.0.0.1,lcd-prod.appspot.com,live.chartboost.com,android.clients.google.com,googleapis.com,app.adjust.io
-
-Japan:
-
-    127.0.0.1,lcd-prod.appspot.com,live.chartboost.com,android.clients.google.com,googleapis.com,ssl.sp.mbga-platform.jp,ssl.sp.mbga.jp,app.adjust.io
-	
-
-**IMPORTANT NOTE:** Once you set up your emulator to point at the proxy, it will need to be running whenever you load up the game on that emulator.
-
-&amp;nbsp;
-
-6) Set up a new folder somewhere for you to work in. Go here to get the scripts:
-
-https://github.com/BaconCatBug/FFRK-Drop-Tracker
-
-Go there and click "Clone or Download &gt; Download Zip" in the top right corner. http://prntscr.com/fht3gy. Open these Zips and extract all files to your working folder. http://prntscr.com/fht2b5
-
-&amp;nbsp;
-
-7) Hold Shift and Right Click some empty space and open a command window in that folder (This is important, don't run it from the start menu). Run the top script to see drops, the bottom script to export inventory:
-
-    mitmdump -q --listen-host xxx.xxx.xxx.xxx -s ffrk_drop_tracker_v1.8.py
--
-    mitmdump -q --listen-host xxx.xxx.xxx.xxx -s ffrk_inventory_tracker_v1.8.py
-	
-	
-**Explanation**: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy and "-s ffrk_drop_tracker_v1.8.py" means to run the script ffrk_drop_tracker_v1.8.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3. If you're using an old version of mitmproxy you might need to use "-b" instead of "--listen-host"
-
-Optionally, you can save ONE of the command lines (only one per .bat or it won't work) in a text file, rename it to whatever you want (for example "FFRKTracker.bat") and use that to launch it rather than needing to manually type it out every time. If you make a .bat you can replace xxx.xxx.xxx.xxx with %COMPUTERNAME% but sometimes this results in an incorrect IP being detected. If this happens, just change it back to a raw IP.
-
-**IMPORTANT NOTE:** Unless you've set a static local IP (and you'll know if you have), your local IP can sometimes change. If things stop working, check if this has happened and edit the command accordingly. 
-
-**ANOTHER IMPORTANT NOTE:** Due to the -q flag, it might look like nothing is happening. This is not the case, it is still running in the background. The -q flag even suppresses the "Proxy server listening at" message.
-
-**YET ANOTHER IMPORTANT NOTE:** Once you set up your emulator to point at the proxy, it will need to be running whenever you load up the game on that emulator.
-
-&amp;nbsp;
-
-8) If everything is set up correctly, mitmproxy will run and start listening for connections. http://prntscr.com/h1bacn
-
-&amp;nbsp;
-
-9) In your emulator, load up FFRK.
-
-&amp;nbsp;
-
-To export your Inventory, run the command from step 7 with the ffrk_tracker_v1.8.py in it:
-
-10a) Click the Inventory button, then the View/Sell Items button, then the Vault Button, then each tab in the vault.
-
-10b) Boom, you should have a whole bunch of .csv (Comma Separated Values) files with all your lovely data. http://prntscr.com/ff9xwc
-
-10c) Use my spreadsheets [FFRK Graphical Inventory](https://goo.gl/b2Zqb8) and [FFRK Inventory Stats and Dud Relic Finder.](https://goo.gl/RByqif) to have a nice way of sharing your stuff.
-
-10d) Microsoft Excel is preferred. If you use Libreoffice, set the import encoding to UTF-8.
-
-&amp;nbsp;
-
-To farm drops, run the command from step 7 with the ffrk_drop_tracker_v1.8.py in it:
-
-11a) Enter a battle.
-
-11b) Boom, you should see your drops! http://prntscr.com/fht31i
-
-&amp;nbsp;
-
-If anyone has any questions or suggestions on improving this guide, please let me know.
-
-I have not tested doing this with a phone pointed to a PC running the mitmproxy on a local network. It should work (I think) but I have not tested it.
-
-If you use an emulator and it works, please let me know which one and which version of the emulator you used so I can make a list of working emulators.
-
-Working Emulators:
-
-* Nox App Player (v5.0.0.1 and above. v6.0.1.1)  https://www.bignox.com/
-
-* Nox App Player (3.8.3.1)
-
-* MEmu (2.9.6.1) http://www.memuplay.com/blog/index.php/2017/03/03/memu-2-9-6-is-released/
-
-* [Information on how to configure Genymotion to work
- with FFRK Drop Tracker.](https://www.reddit.com/r/FFRecordKeeper/comments/6vhyod/ffrk_drop_tracker_export_your_entire_inventory/dnde6mq/)
-
-Emulators that do not work:
-
-* Any MEmu 3+

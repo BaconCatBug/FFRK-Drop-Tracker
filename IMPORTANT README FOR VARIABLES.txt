@@ -8,3 +8,10 @@ Edit the variable at the top of FFRK_Inventory_Tracker_v3.xx.py to say "ignore_c
 
 Export Crappy Relics:
 Edit the variable at the top of FFRK_Inventory_Tracker_v3.xx.py to say "ignore_three_star_and_lower_relics=0".
+
+Soul Break Export Level:
+Edit the variable at the top of FFRK_Inventory_Tracker_v3.xx.py to say:
+"soul_break_export_level=1" to export ALL Soul Breaks, including Default Soul Breaks. 
+"soul_break_export_level=2" to export Non-Default Soul Breaks, including Shared Soul Breaks.
+"soul_break_export_level=3" to export Non-Default Soul Breaks, Non-Shared Soul Breaks.
+

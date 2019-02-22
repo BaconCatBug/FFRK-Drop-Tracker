@@ -2,7 +2,7 @@ import json
 import time
 import re
 
-
+print("Waiting for you to enter a battle...")
 def response(flow):
     if len(re.findall('/get_battle_init_data', flow.request.path)) == 0:
         return
