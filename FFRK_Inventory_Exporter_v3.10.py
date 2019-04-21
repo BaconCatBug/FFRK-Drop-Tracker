@@ -7,6 +7,7 @@ japan=0
 ignore_crappy_core_soul_breaks=1
 ignore_three_star_and_lower_relics=1
 soul_break_export_level=2
+export_raw_json=0
 
 print("Enter your Item Inventory, and then your Vault, to export all data.")
 def response(flow):
@@ -27,28 +28,42 @@ def response(flow):
 
 	if (cases[flow.request.path] == 'inventory_relics'):
 		getRelics(data['equipments'], '1-FFRK-Inventory-Relics')
-		
+		if (export_raw_json==1):
+			exportRawJson(data,'list_equipment')
+
 	elif (cases[flow.request.path] == 'main_magicite'):
 		getMagicite(data['beasts'], '5-FFRK-Magicite')
+		if (export_raw_json==1):
+			exportRawJson(data,'list')
 
 	elif (cases[flow.request.path] == 'vault_relic'):
 		getVaultRelics(data['equipments'], '3-FFRK-Vault-Relics')
+		if (export_raw_json==1):
+			exportRawJson(data,'get_equipment_list')
 
 	elif (cases[flow.request.path] == 'soul_breaks'):
 		getSBs(data['soul_strikes'], '2-FFRK-Soul_Breaks')
 		getLMs(data['legend_materias'], '7-FFRK-Legend_Materia')
 		#getBuddies(data['buddies'], 'X-FFRK-Characters')
-		
+		if (export_raw_json==1):
+			exportRawJson(data,'list_buddy')
+
 	elif (cases[flow.request.path] == 'list_other'):
 		getAbilities(data['abilities'], '4-FFRK-Abilities')
 		getOrbs(data['materials'], '6-FFRK-Orbs')
 		#getRMs(data['record_materias'], 'X-FFRK-Inventory-Record_Materia')
+		if (export_raw_json==1):
+			exportRawJson(data,'list_other')
 
 	#elif (cases[flow.request.path] == 'vault_rm'):
 		#getRMs(data['record_materias'], 'X-FFRK-Vault-Record_Materia')
+		#if (export_raw_json==1):
+			#exportRawJson(data,'get_record_materia_list')
 		
 	#elif (cases[flow.request.path] == 'vault_magicite'):
 		#getVaultMagicite(data['beasts'], 'X-FFRK-Vault-Magicite')
+		#if (export_raw_json==1):
+			#exportRawJson(data,'get_beast_list')
 
 
 def getRelics(data, filename):
@@ -326,3 +341,7 @@ def getLMs(data, filename):
 
 		for elem in elems:
 			f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1],elem[2],elem[3]))
+
+def exportRawJson(data, filename):
+	with open('{}.json'.format(filename), 'w', encoding="utf-8") as json_file:  
+		json.dump(data, json_file)
