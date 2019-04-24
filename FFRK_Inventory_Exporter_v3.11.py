@@ -2,6 +2,7 @@
 
 import json
 import os
+from datetime import datetime
 
 japan=0
 ignore_crappy_core_soul_breaks=1
@@ -18,7 +19,8 @@ def response(flow):
 		'/dff/beast/list': 'main_magicite',
 		'/dff/warehouse/get_equipment_list': 'vault_relic',
 		'/dff/warehouse/get_record_materia_list': 'vault_rm',
-		'/dff/warehouse/get_beast_list': 'vault_magicite'
+		'/dff/warehouse/get_beast_list': 'vault_magicite',
+		'/dff/equipment_reference/equipment_references?type=GET': 'equip_collection'
 	}
 
 	if (flow.request.path not in cases.keys()):
@@ -54,6 +56,11 @@ def response(flow):
 		#getRMs(data['record_materias'], 'X-FFRK-Inventory-Record_Materia')
 		if (export_raw_json==1):
 			exportRawJson(data,'list_other')
+			
+	#elif (cases[flow.request.path] == 'equip_collection'):
+		#getEquipHistory(data['equipment_references'], 'X-FFRK-Equipment-Collection')
+		#if (export_raw_json==1):
+			#exportRawJson(data,'equip_collection')
 
 	#elif (cases[flow.request.path] == 'vault_rm'):
 		#getRMs(data['record_materias'], 'X-FFRK-Vault-Record_Materia')
@@ -341,6 +348,26 @@ def getLMs(data, filename):
 
 		for elem in elems:
 			f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1],elem[2],elem[3]))
+						
+def getEquipHistory(data, filename):
+	elems = []
+
+	for elem in data:
+		id		= elem['id']
+		name	= elem['name']
+		rarity  = elem['rarity']
+		created_at = elem['created_at']
+		
+		date_aqu = datetime.utcfromtimestamp(float(created_at)).strftime('%Y-%m-%d %H:%M UTC')
+		elems.append([id, name, rarity, created_at, date_aqu])
+
+	elems = sorted(elems, key=lambda x: (x[3],x[2],x[0]))
+
+	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+		f.write('#ID, Name, Rarity,Acquired\n')
+
+		for elem in elems:
+			f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2],elem[4]))
 
 def exportRawJson(data, filename):
 	with open('{}.json'.format(filename), 'w', encoding="utf-8") as json_file:  

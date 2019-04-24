@@ -9,3 +9,4 @@ del /f X-FFRK-Inventory-Record_Materia.csv
 del /f X-FFRK-Characters.csv
 del /f X-FFRK-Vault-Record_Materia.csv
 del /f X-FFRK-Vault-Magicite.csv
+del /f X-FFRK-Equipment-Collection.csv
