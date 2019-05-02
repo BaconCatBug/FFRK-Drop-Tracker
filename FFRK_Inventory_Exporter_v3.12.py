@@ -102,9 +102,9 @@ def getRelics(data, filename):
 		for elem in elems:
 			if ignore_three_star_and_lower_relics == 1:
 				if elem[6] > 3:
-					f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
+					f.write('"{}","{}","{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
 			else:
-				f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
+				f.write('"{}","{}","{}, {}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
 
 def getVaultRelics(data, filename):
 	types = {
@@ -135,9 +135,9 @@ def getVaultRelics(data, filename):
 		for elem in elems:
 			if ignore_three_star_and_lower_relics == 1:
 				if elem[6] > 3:
-					f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
+					f.write('"{}","{}","{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
 			else:
-				f.write('{}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
+				f.write('"{}","{}","{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7]))
 
 
 def getRMs(data, filename):
@@ -176,7 +176,7 @@ def getAbilities(data, filename):
 		f.write('#ID, Ability, Category_Name, Rarity, Rank, Category_ID\n')
 
 		for elem in elems:
-			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
+			f.write('"{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
 
 
 def getOrbs(data, filename):
@@ -197,7 +197,7 @@ def getOrbs(data, filename):
 		f.write('#ID, Orb, Rarity, Amount\n')
 
 		for elem in elems:
-			f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3]))
+			f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3]))
 
 def getSBs(data, filename):
 	teir = {
@@ -242,7 +242,7 @@ def getSBs(data, filename):
 		f.write('#ID, Soul Break, Character ID, Character, Type ID, Type\n')
 
 		for elem in elems:
-			f.write('{}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
+			f.write('"{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
 			
 def getMagicite(data, filename):
 	elems = []
@@ -264,7 +264,7 @@ def getMagicite(data, filename):
 		f.write('#ID, Name, Rarity, Level, Max Level, Element_id, Element\n')
 
 		for elem in elems:
-			f.write('{}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6]))
+			f.write('"{}","{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6]))
 
 def getVaultMagicite(data, filename):
 	elems = []
@@ -283,7 +283,7 @@ def getVaultMagicite(data, filename):
 		f.write('#ID, Name, Rarity, Level\n')
 
 		for elem in elems:
-			f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3]))
+			f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3]))
 
 def getBuddies(data, filename):
 	elems = []
@@ -327,7 +327,7 @@ def getBuddies(data, filename):
 		f.write('#ID, Series,  Name, Job, Level, Max Level, Sphere Levels, HP, Accuracy, Attack, Defense, Magic, Resistance, Mind, Speed, Evasion\n')
 
 		for elem in elems:
-			f.write('{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7], elem[8], elem[9], elem[10], elem[11], elem[12], elem[13], elem[14], elem[15]))
+			f.write('"{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7], elem[8], elem[9], elem[10], elem[11], elem[12], elem[13], elem[14], elem[15]))
 			
 			
 def getLMs(data, filename):
@@ -347,7 +347,7 @@ def getLMs(data, filename):
 		f.write('#ID, Character, LM Name, Effect\n')
 
 		for elem in elems:
-			f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1],elem[2],elem[3]))
+			f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1],elem[2],elem[3]))
 						
 def getEquipHistory(data, filename):
 	elems = []
@@ -367,7 +367,7 @@ def getEquipHistory(data, filename):
 		f.write('#ID, Name, Rarity,Acquired\n')
 
 		for elem in elems:
-			f.write('{}, {}, {}, {}\n'.format(elem[0], elem[1], elem[2],elem[4]))
+			f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2],elem[4]))
 
 def exportRawJson(data, filename):
 	with open('{}.json'.format(filename), 'w', encoding="utf-8") as json_file:  
