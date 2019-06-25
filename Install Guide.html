@@ -55,7 +55,7 @@
 
 <p>&nbsp;</p>
 
-<p>5) Set the Proxy hostname to the IP noted down before. Set the port to 8080 (Yes you have to type it in anyway). In the "Bypass proxy for" box, copy and paste one of the following without quotes. If the "Save" button is greyed out, check for erroneous spaces. <a href="http://prntscr.com/feul26">http://prntscr.com/feul26</a><span class="noCtrlF keyNavAnnotation" data-text="[17]" title="press . then 17 and Enter to open link"></span></p>
+<p>5) Set the Proxy hostname to the IP noted down before. Set the port to 8888. In the "Bypass proxy for" box, copy and paste one of the following without quotes. If the "Save" button is greyed out, check for erroneous spaces. <a href="http://prntscr.com/feul26">http://prntscr.com/feul26</a><span class="noCtrlF keyNavAnnotation" data-text="[17]" title="press . then 17 and Enter to open link"></span></p>
 
 <p>Global:</p>
 
@@ -81,15 +81,15 @@
 
 <p>7) Hold Shift and Right Click some empty space and open a command window in that folder (This is important, don't run it from the start menu). Run the top script to see drops, the bottom script to export inventory:</p>
 
-<pre><code>mitmdump -q --listen-host  xxx.xxx.xxx.xxx -s FFRK_Drop_Tracker_v3.12.py
+<pre><code>mitmdump -q --listen-host  xxx.xxx.xxx.xxx -s FFRK_Drop_Tracker_v3.13.py
 </code></pre>
 
 <h2></h2>
 
-<pre><code>mitmdump -q --listen-host  xxx.xxx.xxx.xxx -s FFRK_Inventory_Exporter_v3.12.py
+<pre><code>mitmdump -q --listen-host  xxx.xxx.xxx.xxx -s FFRK_Inventory_Exporter_v3.13.py
 </code></pre>
 
-<p><strong>Explanation</strong>: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy and "-s FFRK_Drop_Tracker_v3.12.py" means to run the script FFRK_Drop_Tracker_v3.02.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3. If you're using a newer version of mitmproxy (4.0+) you need to use "--listen-host" instead of "-b"</p>
+<p><strong>Explanation</strong>: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy and "-s FFRK_Drop_Tracker_v3.13.py" means to run the script FFRK_Drop_Tracker_v3.02.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3. If you're using a newer version of mitmproxy (4.0+) you need to use "--listen-host" instead of "-b"</p>
 
 <p>Optionally, you can save ONE of the command lines (only one per .bat or it won't work) in a text file, rename it to whatever you want (for example "FFRKTracker.bat") and use that to launch it rather than needing to manually type it out every time. If you make a .bat you can replace xxx.xxx.xxx.xxx with %COMPUTERNAME% but sometimes this results in an incorrect IP being detected. If this happens, just change it back to a raw IP.</p>
 
