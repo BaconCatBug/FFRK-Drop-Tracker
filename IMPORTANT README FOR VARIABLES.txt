@@ -15,5 +15,9 @@ Edit the variable at the top of FFRK_Inventory_Exporter_v3.xx.py to say:
 "soul_break_export_level=2" to export Non-Default Soul Breaks, including Shared Soul Breaks.
 "soul_break_export_level=3" to export Non-Default Soul Breaks, Non-Shared Soul Breaks.
 
+Only export level 99 Magicite:
+Edit the variable at the top of FFRK_Inventory_Exporter_v3.xx.py to say:
+"only_export_level_99_magicite=1"
+
 Raw json Export:
 Edit the variable at the top of FFRK_Inventory_Exporter_v3.xx.py to say "export_raw_json=1"

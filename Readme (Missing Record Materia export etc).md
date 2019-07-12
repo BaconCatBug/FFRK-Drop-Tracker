@@ -1,4 +1,4 @@
-Follow the install guide at https://redd.it/9fktws or the HTML file called "Install Guide.html"
+Follow the install guide at https://redd.it/atobpm or the HTML file called "Install Guide.html"
 Use the data exported with the FFRK Graphical Inventory Spreadsheet at https://docs.google.com/spreadsheets/d/1aJ-y4b2-ulyEJHO2-FuH8mQkmaSrPKN04bwWHOWIFWI
 or with FFRK Inventory Stats and Dud Relic Finder https://docs.google.com/spreadsheets/d/1DblycHYZQySX00fVgrnj8IUltd6-rld3XqSR9tpTG7A
 

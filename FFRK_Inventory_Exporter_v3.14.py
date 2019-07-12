@@ -8,6 +8,7 @@ japan=0
 ignore_crappy_core_soul_breaks=1
 ignore_three_star_and_lower_relics=1
 soul_break_export_level=2
+only_export_level_99_magicite=0
 export_raw_json=0
 
 print("Enter your Item Inventory, and then your Vault, to export all data.")
@@ -255,9 +256,11 @@ def getMagicite(data, filename):
 		max_level	= elem['max_level']
 		elementid	= elem['elements'][0]['id']
 		element		= elem['elements'][0]['name']
-
-		elems.append([id, name, rarity, level, max_level, elementid, element])
-
+		
+		if level == 99 and only_export_level_99_magicite != 0:
+			elems.append([id, name, rarity, level, max_level, elementid, element])
+		elif only_export_level_99_magicite ==0:
+			elems.append([id, name, rarity, level, max_level, elementid, element])
 	elems = sorted(elems, key=lambda x: (-x[2], x[0], x[1], x[5]))
 
 	with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
