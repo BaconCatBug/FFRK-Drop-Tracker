@@ -155,7 +155,7 @@ def getRMs(data, filename):
 		f.write('#ID, RM\n')
 
 		for elem in elems:
-			f.write('{}, {}\n'.format(elem[0], elem[1]))
+			f.write('"{}","{}"\n'.format(elem[0], elem[1]))
 
 def getAbilities(data, filename):
 	elems = []
@@ -214,7 +214,7 @@ def getSBs(data, filename):
 		9: 'Arcane Overstrike',
 		10: 'Glint',
 		11: 'Awakening',
-		12: '???',
+		12: 'Syncro',
 		13: '???'
 	}
 	elems = []
