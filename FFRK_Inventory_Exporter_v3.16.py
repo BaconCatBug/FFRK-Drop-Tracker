@@ -350,7 +350,7 @@ def getLMs(data, filename):
 		f.write('#ID, Character, LM Name, Effect\n')
 
 		for elem in elems:
-			f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1],elem[2],elem[3]))
+			f.write('"{}","{}","{}",{}\n'.format(elem[0], elem[1],elem[2],elem[3]))
 						
 def getEquipHistory(data, filename):
 	elems = []
