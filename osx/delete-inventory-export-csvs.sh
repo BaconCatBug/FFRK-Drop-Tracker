@@ -1,0 +1,12 @@
+rm -f 1-FFRK-Inventory-Relics.csv
+rm -f 2-FFRK-Soul_Breaks.csv
+rm -f 3-FFRK-Vault-Relics.csv
+rm -f 4-FFRK-Abilities.csv
+rm -f 5-FFRK-Magicite.csv
+rm -f 6-FFRK-Orbs.csv
+rm -f 7-FFRK-Legend_Materia.csv
+rm -f X-FFRK-Inventory-Record_Materia.csv
+rm -f X-FFRK-Characters.csv
+rm -f X-FFRK-Vault-Record_Materia.csv
+rm -f X-FFRK-Vault-Magicite.csv
+rm -f X-FFRK-Equipment-Collection.csv
