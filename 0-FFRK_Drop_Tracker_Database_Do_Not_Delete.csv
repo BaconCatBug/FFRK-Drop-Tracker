@@ -1,0 +1,425 @@
+#ID,Name
+0,Gil
+25098001,Tiny Scarletite
+25098002,Small Scarletite
+25098003,Scarletite
+25098004,Large Scarletite
+25098005,Giant Scarletite
+25099001,Tiny Adamantite
+25099002,Small Adamantite
+25099003,Adamantite
+25099004,Large Adamantite
+25099005,Giant Adamantite
+40000001,Minor Power Orb
+40000002,Lesser Power Orb
+40000003,Power Orb
+40000004,Greater Power Orb
+40000005,Major Power Orb
+40000006,Minor White Orb
+40000007,Lesser White Orb
+40000008,White Orb
+40000009,Greater White Orb
+40000010,Major White Orb
+40000011,Minor Black Orb
+40000012,Lesser Black Orb
+40000013,Black Orb
+40000014,Greater Black Orb
+40000015,Major Black Orb
+40000016,Minor Blue Orb
+40000017,Lesser Blue Orb
+40000018,Blue Orb
+40000019,Greater Blue Orb
+40000020,Major Blue Orb
+40000021,Minor Summon Orb
+40000022,Lesser Summon Orb
+40000023,Summon Orb
+40000024,Greater Summon Orb
+40000025,Major Summon Orb
+40000026,Minor Non-Elemental Orb
+40000027,Lesser Non-Elemental Orb
+40000028,Non-Elemental Orb
+40000029,Greater Non-Elemental Orb
+40000030,Major Non-Elemental Orb
+40000031,Minor Fire Orb
+40000032,Lesser Fire Orb
+40000033,Fire Orb
+40000034,Greater Fire Orb
+40000035,Major Fire Orb
+40000036,Minor Ice Orb
+40000037,Lesser Ice Orb
+40000038,Ice Orb
+40000039,Greater Ice Orb
+40000040,Major Ice Orb
+40000041,Minor Lightning Orb
+40000042,Lesser Lightning Orb
+40000043,Lightning Orb
+40000044,Greater Lightning Orb
+40000045,Major Lightning Orb
+40000046,Minor Earth Orb
+40000047,Lesser Earth Orb
+40000048,Earth Orb
+40000049,Greater Earth Orb
+40000050,Major Earth Orb
+40000051,Minor Wind Orb
+40000052,Lesser Wind Orb
+40000053,Wind Orb
+40000054,Greater Wind Orb
+40000055,Major Wind Orb
+40000056,Minor Holy Orb
+40000057,Lesser Holy Orb
+40000058,Holy Orb
+40000059,Greater Holy Orb
+40000060,Major Holy Orb
+40000061,Minor Dark Orb
+40000062,Lesser Dark Orb
+40000063,Dark Orb
+40000064,Greater Dark Orb
+40000065,Major Dark Orb
+40000066,Power Crystal
+40000067,White Crystal
+40000068,Black Crystal
+40000069,Blue Crystal
+40000070,Summon Crystal
+40000071,Non-Elemental Crystal
+40000072,Fire Crystal
+40000073,Ice Crystal
+40000074,Lightning Crystal
+40000075,Earth Crystal
+40000076,Wind Crystal
+40000077,Holy Crystal
+40000078,Dark Crystal
+95001014,Gysahl Greens
+70000001,Minor Growth Egg (500 ExP)
+70000002,Lesser Growth Egg (2.5k ExP)
+70000003,Growth Egg (10k Exp)
+70000004,Greater Growth Egg (50k Exp)
+70000005,Major Growth Egg (250k Exp)
+95001035,Roulette Chips
+95001004,Music Mote
+95001021,Music Mote
+21009002,Oak Staff (XII)*
+21001004,Kunai (IV)*
+21008002,Rod (IV)*
+22056001,Bronze Bangle (VII)*
+21013002,Boomerang (VI)*
+22050003,Round Shield (XII)*
+21004003,Broadaxe (XII)*
+21007001,Leather Glove (VII)*
+21006001,Spear (XII)*
+21001001,Knife (II)*
+22053003,Leather Clothing (IV)*
+22053006,Ninja Gear (VI)
+21001001,Knife (II)
+21005001,Hammer (IV)
+21006001,Spear (XII)
+21008002,Rod (IV)
+21009003,Staff (IV)
+21013002,Boomerang (VI)
+21001006,Chopper (XII)
+21001008,Mythril Dagger (IX)
+21001013,Main Gauche (VI)
+21001014,Air Knife (VI)
+21002010,Ancient Sword (XII)
+21002016,Bastard Sword (V)
+21002022,Crystal Sword (VI)
+21003001,Kazekiri (V)
+21004004,Slasher (XII)
+21006008,Obelisk (XII)
+21007007,Diamond Knuckle (VII)
+21007009,Tiger Claws (III)
+21008013,Light Rod (III)
+21008019,Mace (XII)
+21009001,Cherry Staff (XII)
+21009001,Cherry Staff (XII)
+21009006,Power Staff (IV)
+21010002,Shortbow (XII)
+21010003,Longbow (XII)
+21010011,Hayate Bow (V)
+21011001,Silver Harp (V)
+21012001,Whip (IV)
+21013001,Moonring Blade (VI)
+21013003,Chakram (III)
+22050005,Iron Shield (IV)
+22050007,Golden Shield (V)
+22050016,Greatsword (VI)
+22050016,Heavy Shield (VI)
+22051002,Twist Headband (V)
+22051013,Wizard's Hat (IV)
+22051015,Black Cowl
+22051015,Black Cowl (IV)
+22051017,Beret (VI)
+22052007,Mythril Helm (IV)
+22053001,Copper Cuirass (V)
+22053005,Protect Vest (VII)
+22053007,Kenpo Gi (IV)
+22053010,Black Belt Gi (III)
+22054001,Bronze Armor (V)
+22054008,Knight Armor (III)
+22055002,Cotton Robe (VI)
+22056001,Bronze Bangle (VII)
+22056002,Iron Bangle (VII)
+22056003,Mythril Armlet (VII)
+23080001,Power Wrist (VII)
+23080002,Earring (VII)
+23080003,Talisman (VII)
+23080009,Choco Feather (VII)
+23080010,Star Pendant (VII)
+23080011,Silver Glasses (VII)
+23080012,Protect Ring (VII)
+23080014,Peace Ring (VII)
+23080016,Sniper Eye (VI)
+23080017,Jeweled Ring (VI)
+81759433,Bronze Knuckles (III)
+22052013,Genji Armor (V) *****
+22050014,Genji Helm (V)*****
+22052006,Genji Shield (IV)*****
+22055014,Regal Gown (VI) *****
+23080001,Power Wrist (VII)*
+23080016,Sniper Eye (VI) *
+23080002,Earring (VII)**
+23080003,Talisman (VII)**
+23080009,Choco Feather (VII) **
+23080010,Star Pendant (VII)***
+23080011,Silver Glasses (VII)***
+23080012,Protect Ring (VII)***
+23080014,Peace Ring (VII)***
+23080015,Barrier Ring (VI)***
+23080017,Jeweled Ring (VI)***
+23080018,Angel Wings (VI)***
+23080005,Fire Ring (VII) ****
+23080006,Ice Ring (VII)****
+21001001,Knife (II)*
+21001003,Dagger (IX) *
+21001004,Kunai (IV)*
+21001024,Dagger (XII)*
+21002001,Broadsword (V)*
+21002003,Longsword (XII) *
+21004001,Battle Axe (V)*
+21004002,Handaxe (XII)*
+21004003,Broadaxe (XII)*
+21005001,Hammer (IV) *
+21006001,Spear (XII) *
+21006002,Wind Spear (V)*
+21007001,Leather Glove (VII) *
+21007002,Cat Claws (III) *
+21007005,Bronze Knuckles (III)*
+21008002,Rod (IV)*
+21008019,Mace (XII)*
+21009001,Cherry Staff (XII)*
+21009002,Oak Staff (XII) *
+21009003,Staff (IV)*
+21010001,Silver Bow (V)*
+21010002,Shortbow (XII)*
+21010003,Longbow (XII)*
+21013002,Boomerang (VI)*
+21001002,Mythril Knife (II)**
+21001005,Kodachi (V) **
+21001006,Chopper (XII)**
+21001008,Mythril Dagger (IX) **
+21001022,Mage Masher (XII)**
+21002002,Iron Sword (XII)**
+21002004,Mythril Sword (IV)**
+21002005,Coral Sword (V) **
+21002006,Mythril Blade (XII) **
+21002007,Greatsword (VI) **
+21002011,Zwill Blade (XII)**
+21002013,Flametongue (VI)**
+21003001,Kazekiri (V)**
+21003008,Ashura (IV) **
+21004004,Slasher (XII)**
+21004005,Ogrekiller (IV) **
+21005002,Mythril Hammer (IV) **
+21005003,War Hammer (V)**
+21006003,Partisan (XII)**
+21006004,Heavy Lance (XII)**
+21006005,Mythril Spear (VI)**
+21007003,Metal Knuckles (VI) **
+21007004,Sonic Knuckles (III)**
+21007006,Mythril Claws (VI)**
+21007016,Mythril Claw (VII)**
+21008001,Mythril Rod (VI)**
+21008003,Serpent Rod (XII)**
+21008004,Healing Rod (XII)**
+21008021,Mythril Rod (VII)**
+21009004,Mage's Staff (II)**
+21009005,Mythril Staff (IV)**
+21009006,Power Staff (IV)**
+21009020,Oaken Pole (XII)**
+21009023,Mythril Mace (II)**
+21010004,Flame Bow (V)**
+21010005,Frost Bow (V)**
+21010006,Thunder Bow (V) **
+21010012,Bowgun (XII)**
+21010014,Crossbow (XII)**
+21012001,Whip (IV)**
+21013003,Chakram (III)**
+21001009,Orichalcum Dirk (V) ***
+21001010,Dancing Dagger (V)***
+21001011,Avenger (XII)***
+21001012,Ripper (II) ***
+21001013,Main Gauche (VI)***
+21001014,Air Knife (VI)***
+21001015,Mage Masher (IV)***
+21002008,Rune Blade (V)***
+21002009,Enhancer (V)***
+21002010,Ancient Sword (XII) ***
+21002012,Platinum Sword (XII)***
+21002015,Falchion (VI)***
+21002016,Bastard Sword (VI)***
+21002018,Sleep Blade (IV)***
+21002019,Icebrand (IV)***
+21002020,Defender (IV)***
+21002021,Stoneblade (VI) ***
+21002031,Claymore (XII)***
+21004006,Death Sickle (V)***
+21004008,Poison Axe (IV) ***
+21004010,Dual Tomahawk (III) ***
+21005004,Gaia Hammer (V) ***
+21006006,Javelin (V) ***
+21006007,Storm Spear (XII)***
+21006008,Obelisk (XII)***
+21006009,Halberd (XII)***
+21007007,Diamond Knuckle (VII)***
+21007008,Wyvern Claws (III)***
+21007009,Tiger Claws (III)***
+21007010,Venom Claws (VI)***
+21008005,Flame Rod (V)***
+21008006,Thunder Rod (V) ***
+21008008,Power Rod (XII) ***
+21008009,Poison Rod (VI) ***
+21008010,Punisher (VI)***
+21008011,Lilith Rod (IV) ***
+21008017,Ice Rod (IV)***
+21008020,Bronze Mace (XII)***
+21009007,Golem Staff (III)***
+21009009,Wizard's Staff (XII)***
+21009010,Golden Staff (XII)***
+21009011,Storm Staff (XII)***
+21009013,Flame Staff (XII)***
+21009015,Aura Staff (IV) ***
+21009016,Rune Staff (IV) ***
+21009021,Cypress Pole (XII)***
+21010007,Dark Bow (V)***
+21010009,Aevis Killer (XII)***
+21011001,Silver Harp (V) ***
+21012002,Blitz Whip (IV) ***
+21013004,Shuriken (III)***
+21001007,Cat Claws (II)****
+21001016,Platinum Dagger (XII)****
+21001019,Maneater (VI)****
+21001020,Swordbreaker (VI)****
+21002022,Crystal Sword (VI)****
+21002030,Diamond Sword (XII) ****
+21002038,Wing Sword (II) ****
+21003006,Masamune Blade (VII)****
+21004007,Rune Axe (V)****
+21004009,Giant's Axe (V) ****
+21004011,Hammerhead (XII)****
+21005005,Sledgehammer (XII)****
+21006010,Trident (XII)****
+21007015,Metal Knuckle (VII) ****
+21008007,Gaia Rod (XII)****
+21008013,Light Rod (III) ****
+21008014,Empyrean Rod (XII)****
+21008018,Gravity Rod (VI)****
+21009008,Diamond Mace (II)****
+21009012,Glacial Staff (XII) ****
+21009017,Light Staff (III)****
+21009018,Sage's Staff (IV)****
+21010008,Elven Bow (V)****
+21010010,Killer Bow (V)****
+21010011,Hayate Bow (V)****
+21011002,Madhura Harp (III)****
+21013001,Moonring Blade (VI) ****
+21001017,Gladius (IX)*****
+21001021,Danjuro (XII)*****
+21002023,Buster Sword (VII)*****
+21002026,Dark Sword (IV) *****
+21002026,Dark Sword (IV) *****
+21003005,Masamune (VII)*****
+21007013,Grand Glove (VII)*****
+21008012,Guard Stick (VII)*****
+21009019,Judgment Staff (V)*****
+21014001,Healing Grimoire*****
+161000001,Bomb*
+161000002,Shumelke*
+161000003,Dragon**
+161000004,Flame Dragon**
+161000005,Salamander***
+161000006,Mom Bomb***
+161000007,Liquid Flame***
+161000008,Gnoll*
+161000009,Snowman*
+161000010,Snow Lion**
+161000011,White Dragon**
+161000012,Taharka***
+161000013,Wendigo***
+161000014,Sealion***
+161000029,Yellow Elemental*
+161000030,Kalavinka Striker*
+161000031,Ymir**
+161000032,Thunder Dragon**
+161000033,Humbaba***
+161000034,Enlil***
+161000035,Hydra***
+161000022,Earth Elemental*
+161000023,Clay Golem*
+161000024,Ralvuimago**
+161000025,Antlion**
+161000026,Sand Worm***
+161000027,Shell Dragon***
+161000028,Golem***
+161000015,Rangda*
+161000016,Galypdes*
+161000017,Zu**
+161000018,Rapps**
+161000019,Wing Raptor***
+161000020,Enkidu***
+161000021,Fenrir***
+161000036,Water Flan*
+161000037,Sahagin*
+161000038,Anguiform**
+161000039,Sea Dragon**
+161000040,Bottomswell***
+161000041,Enki***
+161000042,Bismarck***
+161000043,Cure Beast*
+161000044,Fairy Orc*
+161000045,Nymph**
+161000046,White Flame**
+161000047,Kirin***
+161000048,Unicorn***
+161000049,Mist Dragon***
+161000050,Lilith*
+161000051,Forbidden*
+161000052,Etem**
+161000053,Ghoul**
+161000054,Darkmare***
+161000055,Phantom***
+161000056,Shadow Dragon***
+161000057,Firemane****
+161000058,King Bomb****
+161000059,Maliris****
+161000060,Krysta****
+161000061,Dullahan****
+161000062,Isgebind****
+161000063,Sylph****
+161000064,Silver Dragon****
+161000065,Tiamat****
+161000066,Earth Guardian****
+161000067,Catastrophe****
+161000068,Midgardsormr****
+161000069,Mimic Queen****
+161000070,Garuda****
+161000071,Ixion****
+161000072,Gizamaluk****
+161000073,Octomammoth****
+161000074,Kraken****
+161000075,Seraph****
+161000076,Evrae****
+161000077,Siren****
+161000078,Dragon Zombie****
+161000079,Necrophobe****
+161000080,Hades****
+9630871,Rush Ticket
+9631221,Rush Ticket
