@@ -62,7 +62,7 @@ def response(flow):
             elif int(drop) in range(21000000, 24000000):
                 name = 'Relic {0}'.format(drop)
             else:
-                name = 'Unknown (Probbaly Krakka Greens) {0} (type {1})'.format(drop, results['drops'][drop]['type'])
+                name = 'Unknown (Probably Krakka Greens/Rush Tickets) {0} (type {1})'.format(drop, results['drops'][drop]['type'])
             amount = ': {0}'.format(results['drops'][drop]['amount'])
             print('{0}{1}'.format(name, amount))
     if len(results['potions']):
