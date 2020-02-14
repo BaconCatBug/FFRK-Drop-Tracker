@@ -8,7 +8,7 @@ japan = 0
 ignore_crappy_core_soul_breaks = 1
 ignore_three_star_and_lower_relics = 1
 soul_break_export_level = 2
-only_export_level_99_magicite = 0
+only_export_level_99_magicite = 1
 export_raw_json = 0
 modified_id_export = 1
 
@@ -119,6 +119,7 @@ def getRelics(data, filename):
     elems = sorted(elems, key=lambda x: (-x[3], x[4], x[1]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write('#ID, Item, Base Rarity, Rarity, Realm, A.Atk, A.Def, A.Mag, A.Res, A.Mnd\n')
 
         for elem in elems:
@@ -174,6 +175,7 @@ def getVaultRelics(data, filename):
     elems = sorted(elems, key=lambda x: (-x[3], x[4], x[1]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write('#ID, Item, Base Rarity, Rarity, Realm, A.Atk, A.Def, A.Mag, A.Res, A.Mnd\n')
 
         for elem in elems:
@@ -200,6 +202,7 @@ def getRMs(data, filename):
     elems = sorted(elems, key=lambda x: (x[1]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write('#ID, RM\n')
 
         for elem in elems:
@@ -223,6 +226,7 @@ def getAbilities(data, filename):
     elems = sorted(elems, key=lambda x: (-x[3], x[5], x[1], x[0]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write('#ID, Ability, Category_Name, Rarity, Rank, Category_ID\n')
 
         for elem in elems:
@@ -245,6 +249,7 @@ def getOrbs(data, filename):
     elems = sorted(elems, key=lambda x: (-x[2], x[0]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write('#ID, Orb, Rarity, Amount\n')
 
         for elem in elems:
@@ -278,6 +283,7 @@ def getSBs(data, filename):
     elems = sorted(elems, key=lambda x: (x[2], x[4], x[0]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write('#ID, Soul Break, Character ID, Character, Type ID, Type\n')
 
         for elem in elems:
@@ -303,6 +309,7 @@ def getMagicite(data, filename):
     elems = sorted(elems, key=lambda x: (-x[2], x[0], x[1], x[5]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write('#ID, Name, Rarity, Level, Max Level, Element_id, Element\n')
 
         for elem in elems:
@@ -324,6 +331,7 @@ def getVaultMagicite(data, filename):
     elems = sorted(elems, key=lambda x: (-x[3], x[0], x[1]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write('#ID, Name, Rarity, Level\n')
 
         for elem in elems:
@@ -372,6 +380,7 @@ def getBuddies(data, filename):
     elems = sorted(elems, key=lambda x: (x[0], x[2], x[1]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write(
             '#ID, Series,  Name, Job, Level, Max Level, Sphere Levels, HP, Accuracy, Attack, Defense, Magic, Resistance, Mind, Speed, Evasion\n')
 
@@ -395,6 +404,7 @@ def getLMs(data, filename):
     elems = sorted(elems, key=lambda x: (x[0], x[1], x[2]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write('#ID, Character, LM Name, Effect\n')
 
         for elem in elems:
@@ -416,6 +426,7 @@ def getEquipHistory(data, filename):
     elems = sorted(elems, key=lambda x: (x[3], x[2], x[0]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
         f.write('#ID, Name, Rarity,Acquired\n')
 
         for elem in elems:

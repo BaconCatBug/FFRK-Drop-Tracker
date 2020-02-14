@@ -21,3 +21,6 @@ Edit the variable at the top of FFRK_Inventory_Exporter_v3.xx.py to say:
 
 Raw json Export:
 Edit the variable at the top of FFRK_Inventory_Exporter_v3.xx.py to say "export_raw_json=1"
+
+Restore raw equipment IDs:
+Edit the variable at the top of FFRK_Inventory_Exporter_v3.xx.py to say "modified_id_export = 1"
