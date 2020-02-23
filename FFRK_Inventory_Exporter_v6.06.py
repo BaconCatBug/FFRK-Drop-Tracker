@@ -91,13 +91,13 @@ def getRelics(data, filename):
         realm_id = int(str(elem['series_id'])[1:3]) if elem['series_id'] > 10 else 99
         if modified_id_export == 1:
             if (rarity - base_rarity) == 1:
-                relic_id = str(relic_id) + 'P'
+                relic_id = relic_id*10 + 1
             elif (rarity - base_rarity) == 2:
-                relic_id = str(relic_id) + 'PP'
+                relic_id = relic_id*10 + 2
             elif (rarity - base_rarity) == 3:
-                relic_id = str(relic_id) + 'PPP'
+                relic_id = relic_id*10 + 3
             else:
-                relic_id = str(relic_id) + 'B'
+                relic_id = relic_id*10
         rosetta_param = elem['hammering_affect_param_key']
         rosetta_value = elem['hammering_num']
         rosetta_atk = rosetta_def = rosetta_matk = rosetta_mdef = rosetta_mnd = 0
@@ -116,7 +116,7 @@ def getRelics(data, filename):
             [relic_id, name, base_rarity, rarity, realm_id, rosetta_atk, rosetta_def, rosetta_matk, rosetta_mdef,
              rosetta_mnd])
 
-    elems = sorted(elems, key=lambda x: (-x[3], x[4], x[1]))
+    elems = sorted(elems, key=lambda x: (x[0], -x[3], x[4], x[1]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
         f.write('\ufeff')
@@ -146,13 +146,13 @@ def getVaultRelics(data, filename):
         realm_id = int(str(elem['series_id'])[1:3]) if elem['series_id'] > 10 else 99
         if modified_id_export == 1:
             if (rarity - base_rarity) == 1:
-                relic_id = str(relic_id) + 'P'
+                relic_id = relic_id*10 + 1
             elif (rarity - base_rarity) == 2:
-                relic_id = str(relic_id) + 'PP'
+                relic_id = relic_id*10 + 2
             elif (rarity - base_rarity) == 3:
-                relic_id = str(relic_id) + 'PPP'
+                relic_id = relic_id*10 + 3
             else:
-                relic_id = str(relic_id) + 'B'
+                relic_id = relic_id*10 + 1
 
         rosetta_param = elem['hammering_affect_param_key']
         rosetta_value = elem['hammering_num']
@@ -172,7 +172,7 @@ def getVaultRelics(data, filename):
             [relic_id, name, base_rarity, rarity, realm_id, rosetta_atk, rosetta_def, rosetta_matk, rosetta_mdef,
              rosetta_mnd])
 
-    elems = sorted(elems, key=lambda x: (-x[3], x[4], x[1]))
+    elems = sorted(elems, key=lambda x: (x[0], -x[3], x[4], x[1]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
         f.write('\ufeff')
@@ -199,7 +199,7 @@ def getRMs(data, filename):
         name = elem['name']
         elems.append([rm_id, name])
 
-    elems = sorted(elems, key=lambda x: (x[1]))
+    elems = sorted(elems, key=lambda x: (x[0], x[1]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
         f.write('\ufeff')
@@ -223,7 +223,7 @@ def getAbilities(data, filename):
         if abil_id != 30131091:
             elems.append([abil_id, name, category_name, rarity, rank, category_id])
 
-    elems = sorted(elems, key=lambda x: (-x[3], x[5], x[1], x[0]))
+    elems = sorted(elems, key=lambda x: (x[0], -x[3], x[5], x[1]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
         f.write('\ufeff')
@@ -246,7 +246,7 @@ def getOrbs(data, filename):
                 orb_id <= 40000078 and orb_id != 40000069 and orb_id != 40000020 and orb_id != 40000019 and orb_id != 40000018 and orb_id != 40000017 and orb_id != 40000016):
             elems.append([orb_id, name, rarity, amount])
 
-    elems = sorted(elems, key=lambda x: (-x[2], x[0]))
+    elems = sorted(elems, key=lambda x: (x[0], -x[2]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
         f.write('\ufeff')
@@ -280,7 +280,7 @@ def getSBs(data, filename):
             if (category_id >= soul_break_export_level) and (char_id >= 10000000 or char_id == 0):
                 elems.append([sb_id, name, char_id, char, category_id, category])
 
-    elems = sorted(elems, key=lambda x: (x[2], x[4], x[0]))
+    elems = sorted(elems, key=lambda x: (x[0], x[2], x[4]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
         f.write('\ufeff')
@@ -306,7 +306,7 @@ def getMagicite(data, filename):
             elems.append([magicite_id, name, rarity, level, max_level, elementid, element])
         elif only_export_level_99_magicite == 0:
             elems.append([magicite_id, name, rarity, level, max_level, elementid, element])
-    elems = sorted(elems, key=lambda x: (-x[2], x[0], x[1], x[5]))
+    elems = sorted(elems, key=lambda x: (x[0], x[1], x[5]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
         f.write('\ufeff')
@@ -423,7 +423,7 @@ def getEquipHistory(data, filename):
         date_aqu = datetime.utcfromtimestamp(float(created_at)).strftime('%Y-%m-%d %H:%M UTC')
         elems.append([history_id, name, rarity, created_at, date_aqu])
 
-    elems = sorted(elems, key=lambda x: (x[3], x[2], x[0]))
+    elems = sorted(elems, key=lambda x: (x[0], x[3], x[2]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
         f.write('\ufeff')
