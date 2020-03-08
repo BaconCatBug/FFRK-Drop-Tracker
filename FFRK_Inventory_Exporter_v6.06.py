@@ -246,7 +246,7 @@ def getOrbs(data, filename):
                 orb_id <= 40000078 and orb_id != 40000069 and orb_id != 40000020 and orb_id != 40000019 and orb_id != 40000018 and orb_id != 40000017 and orb_id != 40000016):
             elems.append([orb_id, name, rarity, amount])
 
-    elems = sorted(elems, key=lambda x: (x[0], -x[2]))
+    elems = sorted(elems, key=lambda x: (-x[2]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
         f.write('\ufeff')
