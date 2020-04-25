@@ -82,24 +82,3 @@ def response(flow):
         for materia in results['materias']:
             print(materia)
     print('\n\n')
-    get_EXP_RM_Boosts(data)
-
-
-def get_EXP_RM_Boosts(data):
-    results = []
-    names_fixed = {'10000200': 'Tyro', '10400100': 'Cecil (Dark Knight)', '10400200': 'Cecil (Paladin)',
-                   '10401500': 'Cid (IV)', '10701100': 'Cid (VII)', '11400800': 'Cid (XIV)', '10500600': 'Gogo (V)',
-                   '10601400': 'Gogo (VI)', '10100900': 'Theif (I)', '10002700': 'Theif (Core)'}
-    buddies = data['battle']['buddy']
-    buddies.sort(key=lambda x: x['pos_id'], reverse=False)
-    for buddy in buddies:
-        uid = str(buddy['uid'])
-        exp_boost = int(data['battle']['buddy_boost_map']['exp'][uid])
-        if exp_boost != 0:
-            buddy_id = str(buddy['id'])
-            name = str(names_fixed[buddy_id]) if (buddy_id in names_fixed) else str(buddy['params'][0]['disp_name'])
-            results.append(' x{1:0.2f} {0}'.format(name, float(exp_boost) / 100))
-    if len(results):
-        print('EXP RM Boost:\n-------------')
-        print('\n'.join(results))
-        print('\n')
