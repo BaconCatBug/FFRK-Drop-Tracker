@@ -264,7 +264,7 @@ def getOrbs(data, filename):
 
 def getSBs(data, filename):
     teir = {0: '???', 1: 'Default', 2: 'Shared', 3: 'Unique', 4: 'Super', 5: 'Burst', 6: 'Overstrike', 7: 'Ultra',
-            8: 'Chain', 9: 'Arcane Overstrike', 10: 'Glint', 11: 'Awakening', 12: 'Syncro', 13: '???'}
+            8: 'Chain', 9: 'Arcane Overstrike', 10: 'Glint', 11: 'Awakening', 12: 'Syncro', 13: 'Limit Break Overstrike', 14: 'Limit Break Glint', 15: '???', 16: '???', 17: '???'}
     elems = []
 
     for elem in data:
