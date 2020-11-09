@@ -1,14 +1,27 @@
-<p>Want something to <em>do</em> with the data export? Try out my <a href="https://goo.gl/b2Zqb8">FFRK Graphical Inventory</a><span class="noCtrlF keyNavAnnotation" data-text="[1]" title="press 1 to open link"></span> or my <a href="https://goo.gl/RByqif">FFRK Inventory Stats and Dud Relic Finder.</a><span class="noCtrlF keyNavAnnotation" data-text="[2]" title="press 2 to open link"></span></p>
+<style type="text/css">
+*,body,span, div {background-color: #444; color:#DDD}
+.spoilerbutton {font-weight: bold; 
+}
+.spoiler {overflow:hidden;}
+.spoiler > div {-webkit-transition: all 0s ease;-moz-transition: margin 0s ease;-o-transition: all 0s ease;transition: margin 0s ease;}
+.spoilerbutton[value="Show BlueStacks Instructions"] + .spoiler > div {margin-top:-500%;}
+.spoilerbutton[value="Hide BlueStacks Instructions"] + .spoiler {padding:5px;} 
+.spoilerbutton[value="Show MeMu/Android Phone/Other Emulator Instructions"] + .spoiler > div {margin-top:-500%;}
+.spoilerbutton[value="Hide MeMu/Android Phone/Other Emulator Instructions"] + .spoiler {padding:5px;} 
+</style> 
+<body>
 
-<p><strong>This guide is intended to aid anyone and everyone in getting a way to display the drops of a battle without having to complete it, thus allowing for more time efficient farming of Magicite, Motes, Major Orbs, Crystals and anything else you may desire; or in getting their Final Fantasy Record Keeper inventory, Soul Breaks, abilities and orbs in a usable csv format, primarily for use with my spreadsheet <a href="https://goo.gl/b2Zqb8">here</a><span class="noCtrlF keyNavAnnotation" data-text="[3]" title="press 3 to open link"></span>.</strong></p>
+<p>Want something to <em>do</em> with the data export? Try out my <a href="https://docs.google.com/spreadsheets/d/1aJ-y4b2-ulyEJHO2-FuH8mQkmaSrPKN04bwWHOWIFWI">FFRK Soul Break, Ability and Orb Graphical Inventory</a> or my <a href="https://docs.google.com/spreadsheets/d/1-yv8DcTuVoZOWQJSy1ZWsl-tAomwr6KA_bDW2GSCze4/">FFRK Relic Inventory Stats and Dud Relic Finder.</a> Alternitively, <a href="https://sbs.jaryth.net/">you can use Jareth's excelent site!</a></p>
+<strong>
+<p>This guide is intended to aid anyone and everyone <s>in getting a way to display the drops of a battle without having to complete it, thus allowing for more time efficient farming of Magicite, Motes, Major Orbs, Crystals and anything else you may desire; or</s> (the former functionaly is utterly redundant in modern FFRK, but is kept in case you really need it for some reason or want to time your farming runs in a really overcomplicated way) in getting their Final Fantasy Record Keeper inventory, Soul Breaks, abilities and orbs in a usable csv format, primarily for use with my spreadsheets linked at the top of this guide.</p>
 
 <p>But no man is island, for men are not made of rocks. Extra special thanks to the following Redditors without whom none of this would have been possible.</p>
 
 <ul>
-<li><a href="https://www.reddit.com/u/vexnon">/u/vexnon</a><span class="noCtrlF keyNavAnnotation" data-text="[4]" title="press 4 to open link"></span> for making the mitmproxy scripts</li>
-<li><a href="https://www.reddit.com/u/Gitpush1337">/u/Gitpush1337</a><span class="noCtrlF keyNavAnnotation" data-text="[5]" title="press 5 to open link"></span> for an expanded drop database csv file</li>
-<li><a href="https://www.reddit.com/u/csdx">/u/csdx</a><span class="noCtrlF keyNavAnnotation" data-text="[6]" title="press 6 to open link"></span> for informing me of the =Query() formula</li>
-<li>And most importantly, <a href="https://www.reddit.com/u/enlir">/u/enlir</a><span class="noCtrlF keyNavAnnotation" data-text="[7]" title="press 7 to open link"></span> and  <a href="https://www.reddit.com/u/MysteriousMisterP">/u/MysteriousMisterP</a><span class="noCtrlF keyNavAnnotation" data-text="[8]" title="press 8 to open link"></span>. These folks literally make the game playable.</li>
+<li><a href="https://www.reddit.com/u/vexnon">/u/vexnon</a> for making the mitmproxy scripts</li>
+<li><a href="https://www.reddit.com/u/Gitpush1337">/u/Gitpush1337</a> for an expanded drop database csv file</li>
+<li><a href="https://www.reddit.com/u/csdx">/u/csdx</a> for informing me of the =Query() formula</li>
+<li>And most importantly, <a href="https://www.reddit.com/u/enlir">/u/enlir</a>. These folks literally make the game playable.</li>
 </ul>
 
 <p>*******************************</p>
@@ -22,11 +35,11 @@
 <ul>
 <li><p>The very first thing you need to do is make sure that CPU Virtualisation is enabled/supported by your PC. Without it, any form of android emulation is going to run slower than molasses uphill at the South Pole.</p></li>
 <li><p>Next, ensure your game is linked to your Google Play account. This will allow you to swap seamlessly between your phone and PC.</p></li>
-<li><p>Install an Android Emulator of your choice. However, several emulators recently have been not respecting the proxy bypass settings for localhost. This will cause any attempt to connect via a proxy to eat shit and die. So far I can confirm that Nox App Player is the best emulator to use for this, while an old version of MEmu (2.9.6.1) will work. Please let people know in the comments if an emulator works for you and what the version number is. On a personal note I use Nox 5.0.0.1</p></li>
-<li><p>Click on the Settings shortcut, scroll down to "Date and Time", disable "Automatic Time Zone" (although keep "Automatic Date and Time") and manually pick your location in "Select Time Zone".</p></li>
+<li><p>Install an Android Emulator of your choice. The two main choices are Bluestacks and MeMu Play. Personally, I use Bluestacks (with the caveat that it requires extra config via ProxyCap and BSTweaker due to it's locked down nature), with MeMu being my alternitive. Nox is just too slow IMO. Also, MeMu is Chinese so... -shrug-. Bluestacks is a little annoying with it's popups but it's the best of a bad bunch, maybe? IDK you need to decide for yourself. </p></li>
+<li><p>(In MeMu): Click on the Settings shortcut, scroll down to "Date and Time", disable "Automatic Time Zone" (although keep "Automatic Date and Time") and manually pick your location in "Select Time Zone".</p></li>
 <li><p>If you have a non-English keyboard layout, you may need to change the keyboard language in the "Language and Input" section of the settings panel or as a last resort clicking the "Default" setting there and disabling the physical keyboard altogether.</p></li>
 <li><p>Open Google Play store, click the top left button, go to "My Apps" and run any updates needed. Then search for and install "Google Play Games" and then "Final Fantasy Record Keeper". <strong>The order is important.</strong></p></li>
-<li><p>If for some reason FFRK isn't showing on the app store because DeNA is too restrictive on it's compatible devices setting, install it manually <a href="https://apkpure.com/final-fantasy-record-keeper/com.dena.west.FFRK/">with the APK from APKPure</a><span class="noCtrlF keyNavAnnotation" data-text="[9]" title="press 9 to open link"></span>.</p></li>
+<li><p>If for some reason FFRK isn't showing on the app store because DeNA is too restrictive on it's compatible devices setting, install it manually <a href="https://apkpure.com/final-fantasy-record-keeper/com.dena.west.FFRK/">with the APK from APKPure</a>.</p></li>
 </ul>
 
 <p>*******************************</p>
@@ -35,27 +48,66 @@
 
 <p>*******************************</p>
 
-<p>0) Install the x86 version of the Visual C++ Redistributable for Visual Studio 2015 <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">https://www.microsoft.com/en-us/download/details.aspx?id=48145</a><span class="noCtrlF keyNavAnnotation" data-text="[10]" title="press 0 to open link"></span></p>
+<p>0) Install the x86 version of the Visual C++ Redistributable for Visual Studio 2015 <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">https://www.microsoft.com/en-us/download/details.aspx?id=48145</a></p>
 
 <p>&nbsp;</p>
 
-<p>1) Go to <a href="https://mitmproxy.org/">https://mitmproxy.org/</a><span class="noCtrlF keyNavAnnotation" data-text="[11]" title="press . then 11 and Enter to open link"></span> and click the "Download Windows Installer" link. You must use v4.0.4 or higher</p>
+<p>1) Go to <a href="https://mitmproxy.org/">https://mitmproxy.org/</a> and click the "Download Windows Installer" link. Use the latest release.</p>
 
 <p>&nbsp;</p>
 
-<p>2) Run the installer, clicking next until the final window. Uncheck "run the ui" or close it if it did run.</p>
+<p>2) Run the installer, clicking next until the final window. Uncheck "Run the UI" or close it if it did run.</p>
+
+<p>&nbsp;</p>
+<input class="spoilerbutton" type="button" value="Show BlueStacks Instructions" onclick="this.value=this.value=='Show BlueStacks Instructions'?'Hide BlueStacks Instructions':'Show BlueStacks Instructions';">
+<div class="spoiler">
+<div>
+3) Download <a href="https://bstweaker.tk//">BSTweaker</a>.
+
+<p>&nbsp;</p>
+4) Run BSTweaker. Click the "Play" button for the BlueStacks instance your FFRK is installed on. Once it has loaded, click the Radio button to the left of your BlueStacks instance to select it. Go to the "Root" tab, click "Patch", then once it's finished, click "Install SuperSu".
+
+
+
+<p>&nbsp;</p>
+5) Open the Play Store and install "Root Certificate Manager(ROOT)" by JoshTheMan. We will use this in a bit to install a certificate.
+<p>&nbsp;</p>
+6) Install <a href="http://www.proxycap.com/download.html/">ProxyCap</a>, then reboot.
 
 <p>&nbsp;</p>
 
-<p>3) Find your local IP and write it down somewhere. There are many ways to do this. If you're savvy enough to do it with ipconfig /all, do so. For the non-tech savvy, you can use this site, you want the top IP <a href="http://prntscr.com/feuhx6">http://prntscr.com/feuhx6</a><span class="noCtrlF keyNavAnnotation" data-text="[14]" title="press . then 14 and Enter to open link"></span> <a href="https://www.whatismybrowser.com/detect/what-is-my-local-ip-address">https://www.whatismybrowser.com/detect/what-is-my-local-ip-address</a><span class="noCtrlF keyNavAnnotation" data-text="[15]" title="press . then 15 and Enter to open link"></span></p>
+7) Follow the <a href="http://www.proxycap.com/bluestacks.html/">ProxyCap Bluestacks guide</a>, with the following exeptions:<br><li>When you create a proxy, only create a HTTPS proxy. Do not create a HTTP proxy. </li><br><li>Set the hostname to 127.0.0.1 and the port to 8888</li><br><li>Follow the Extended Configuration and set all three .exe to use the HTTPS proxy</li>
 
 <p>&nbsp;</p>
 
-<p>4) Fire up your Android Emulator. Click "Settings", then "Wifi". If it says "Connected via wifi assistant", toggle the wifi off and on, then click to connect to the network. Long press the network, click "Modify Network", Click "Advanced Options", click on the "None" under Proxy and change it to "Manual". <a href="http://prntscr.com/feujr2">http://prntscr.com/feujr2</a><span class="noCtrlF keyNavAnnotation" data-text="[16]" title="press . then 16 and Enter to open link"></span></p>
+8) Exit the .bat files and replace xxx.xxx.xxx.xxx with 127.0.0.1
+
+<p>&nbsp;</p>
+9) Run the Exporter .bat and enable ProxyCap. In the emulator, open a browser and go to mitm.it where it should show a list of certificates. Click the "Get mitmproxy-ca-cert.cer" button for android, then click cancel when the system popup happens.
+
+<p>&nbsp;</p>
+10) Open Root Certificate Manager, click the Folder at the top, click the top left Burger menu, click Downloads, then click the certificate you just downloaded, then click Import.
+<p>&nbsp;</p>
+11) When you want BlueStacks to run though the Exporter, enable ProxyCap while the Exporter is running.
+<p>&nbsp;</p>
+<p>12) To export your data, run the Exporter, enable ProxyCap, load FFRK, click the Inventory button, then the View/Sell Items button, then the Vault Button, then each tab in the vault (if you enable thos last options).</p>
+<p>&nbsp;</p>
+<p>13) Boom, you should have a whole bunch of .csv (Comma Separated Values) files with all your lovely data. <a href="http://prntscr.com/ff9xwc">http://prntscr.com/ff9xwc</a></p>
+<p>&nbsp;</p>
+14) Use my Spreadsheets or Jareth's site linked at the top of the guide if you so desire.
+</div></div>
+<input class="spoilerbutton" type="button" value="Show MeMu/Android Phone/Other Emulator Instructions" onclick="this.value=this.value=='Show MeMu/Android Phone/Other Emulator Instructions'?'Hide MeMu/Android Phone/Other Emulator Instructions':'Show MeMu/Android Phone/Other Emulator Instructions';">
+<div class="spoiler"><div>
+
+<p>3) Find your local IP and write it down somewhere. There are many ways to do this. If you're savvy enough to do it with ipconfig /all, do so. For the non-tech savvy, you can use this site, you want the top IP <a href="http://prntscr.com/feuhx6">http://prntscr.com/feuhx6</a><a href="https://www.whatismybrowser.com/detect/what-is-my-local-ip-address">https://www.whatismybrowser.com/detect/what-is-my-local-ip-address</a></p>
 
 <p>&nbsp;</p>
 
-<p>5) Set the Proxy hostname to the IP noted down before. Set the port to 8888. In the "Bypass proxy for" box, copy and paste one of the following without quotes. If the "Save" button is greyed out, check for erroneous spaces. <a href="http://prntscr.com/feul26">http://prntscr.com/feul26</a><span class="noCtrlF keyNavAnnotation" data-text="[17]" title="press . then 17 and Enter to open link"></span></p>
+<p>4) Fire up your Android Emulator. Click "Settings", then "Wifi". If it says "Connected via wifi assistant", toggle the wifi off and on, then click to connect to the network. Long press the network, click "Modify Network", Click "Advanced Options", click on the "None" under Proxy and change it to "Manual". <a href="http://prntscr.com/feujr2">http://prntscr.com/feujr2</a></p>
+
+<p>&nbsp;</p>
+
+<p>5) Set the Proxy hostname to the IP noted down before. Set the port to 8888. In the "Bypass proxy for" box, copy and paste one of the following without quotes. If the "Save" button is greyed out, check for erroneous spaces. <a href="http://prntscr.com/feul26">http://prntscr.com/feul26</a></p>
 
 <p>Global:</p>
 
@@ -73,9 +125,9 @@
 
 <p>6) Set up a new folder somewhere for you to work in. Go here to get the scripts:</p>
 
-<p><a href="https://github.com/BaconCatBug/FFRK-Drop-Tracker">https://github.com/BaconCatBug/FFRK-Drop-Tracker</a><span class="noCtrlF keyNavAnnotation" data-text="[18]" title="press . then 18 and Enter to open link"></span></p>
+<p><a href="https://github.com/BaconCatBug/FFRK-Drop-Tracker">https://github.com/BaconCatBug/FFRK-Drop-Tracker</a></p>
 
-<p>Go there and click "Clone or Download &gt; Download Zip" in the top right corner. <a href="http://prntscr.com/fht3gy">http://prntscr.com/fht3gy</a><span class="noCtrlF keyNavAnnotation" data-text="[19]" title="press . then 19 and Enter to open link"></span>. Open these Zips and extract all files to your working folder. <a href="http://prntscr.com/fht2b5">http://prntscr.com/fht2b5</a><span class="noCtrlF keyNavAnnotation" data-text="[20]" title="press . then 20 and Enter to open link"></span></p>
+<p>Go there and click "Clone or Download &gt; Download Zip" in the top right corner. <a href="http://prntscr.com/fht3gy">http://prntscr.com/fht3gy</a></p>
 
 <p>&nbsp;</p>
 
@@ -91,7 +143,7 @@
 
 <p><strong>Explanation</strong>: "mitmdump" is the proxy program, "-q" is quiet mode so it doesn't spam the screen with traffic, "--listen-host xxx.xxx.xxx.xxx" listens to the IP given to the proxy, --listen-port specifies the port and "-s FFRK_Drop_Tracker_v6.12.py" means to run the script FFRK_Drop_Tracker_v6.12.py. Note you need to replace xxx.xxx.xxx.xxx with your IP found in step 3.</p>
 
-<p>Optionally, you can save ONE of the command lines (only one per .bat or it won't work) in a text file, rename it to whatever you want (for example "FFRKTracker.bat") and use that to launch it rather than needing to manually type it out every time. If you make a .bat you can replace xxx.xxx.xxx.xxx with %COMPUTERNAME% but sometimes this results in an incorrect IP being detected. If this happens, just change it back to a raw IP.</p>
+<p>The included Batch (.bat) files can be edited so you don't need to manually type the command every time. If you make a .bat you can replace xxx.xxx.xxx.xxx with %COMPUTERNAME% but sometimes this results in an incorrect IP being detected. If this happens, just change it back to a raw IP.</p>
 
 <p><strong>IMPORTANT NOTE:</strong> Unless you've set a static local IP (and you'll know if you have), your local IP can sometimes change. If things stop working, check if this has happened and edit the command accordingly. </p>
 
@@ -101,7 +153,7 @@
 
 <p>&nbsp;</p>
 
-<p>8) If everything is set up correctly, mitmproxy will run and start listening for connections. <a href="http://prntscr.com/h1bacn">http://prntscr.com/h1bacn</a><span class="noCtrlF keyNavAnnotation" data-text="[21]" title="press . then 21 and Enter to open link"></span></p>
+<p>8) If everything is set up correctly, mitmproxy will run and start listening for connections. <a href="http://prntscr.com/h1bacn">http://prntscr.com/h1bacn</a></p>
 
 <p>&nbsp;</p>
 
@@ -113,9 +165,9 @@
 
 <p>10a) Click the Inventory button, then the View/Sell Items button, then the Vault Button, then each tab in the vault.</p>
 
-<p>10b) Boom, you should have a whole bunch of .csv (Comma Separated Values) files with all your lovely data. <a href="http://prntscr.com/ff9xwc">http://prntscr.com/ff9xwc</a><span class="noCtrlF keyNavAnnotation" data-text="[22]" title="press . then 22 and Enter to open link"></span></p>
+<p>10b) Boom, you should have a whole bunch of .csv (Comma Separated Values) files with all your lovely data. <a href="http://prntscr.com/ff9xwc">http://prntscr.com/ff9xwc</a></p>
 
-<p>10c) Use my spreadsheets <a href="https://docs.google.com/spreadsheets/d/1aJ-y4b2-ulyEJHO2-FuH8mQkmaSrPKN04bwWHOWIFWI/">FFRK Soul Break, Ability and Orb Graphical Inventory</a><span class="noCtrlF keyNavAnnotation" data-text="[23]" title="press . then 23 and Enter to open link"></span> and <a href="https://docs.google.com/spreadsheets/d/1-yv8DcTuVoZOWQJSy1ZWsl-tAomwr6KA_bDW2GSCze4/">FFRK Relic Inventory Stats and Dud Relic Finder.</a><span class="noCtrlF keyNavAnnotation" data-text="[24]" title="press . then 24 and Enter to open link"></span> to have a nice way of sharing your stuff.</p>
+<p>10c) Use my spreadsheets <a href="https://docs.google.com/spreadsheets/d/1aJ-y4b2-ulyEJHO2-FuH8mQkmaSrPKN04bwWHOWIFWI/">FFRK Soul Break, Ability and Orb Graphical Inventory</a> to have a nice way of sharing your stuff.</p>
 
 <p>10d) Microsoft Excel is preferred. If you use Libreoffice, set the import encoding to UTF-8.</p>
 
@@ -125,7 +177,9 @@
 
 <p>11a) Enter a battle.</p>
 
-<p>11b) Boom, you should see your drops! <a href="http://prntscr.com/fht31i">http://prntscr.com/fht31i</a><span class="noCtrlF keyNavAnnotation" data-text="[25]" title="press . then 25 and Enter to open link"></span></p>
+<p>11b) Boom, you should see your drops! <a href="http://prntscr.com/fht31i">http://prntscr.com/fht31i</a></p>
+</div></div>
+
 
 <p>&nbsp;</p>
 
@@ -138,16 +192,10 @@
 <p>Working Emulators:</p>
 
 <ul>
-<li><p>Nox App Player (v5.0.0.1 and above. v6.0.1.1, v6.2.6.3)  <a href="https://www.bignox.com/">https://www.bignox.com/</a><span class="noCtrlF keyNavAnnotation" data-text="[26]" title="press . then 26 and Enter to open link"></span></p></li>
-<li><p>Nox App Player (3.8.3.1)</p></li>
-<li><p>MEmu (2.9.6.1) <a href="http://www.memuplay.com/blog/index.php/2017/03/03/memu-2-9-6-is-released/">http://www.memuplay.com/blog/index.php/2017/03/03/memu-2-9-6-is-released/</a><span class="noCtrlF keyNavAnnotation" data-text="[27]" title="press . then 27 and Enter to open link"></span></p></li>
+<li><p>BlueStacks 4</p></li>
+<li><p>MeMu Play</p></li>
 <li><p><a href="https://www.reddit.com/r/FFRecordKeeper/comments/6vhyod/ffrk_drop_tracker_export_your_entire_inventory/dnde6mq/">Information on how to configure Genymotion to work
-with FFRK Drop Tracker.</a><span class="noCtrlF keyNavAnnotation" data-text="[28]" title="press . then 28 and Enter to open link"></span></p></li>
+with FFRK Drop Tracker.</a></p></li>
 </ul>
-
-<p>Emulators that do not work:</p>
-
-<ul>
-<li>Any MEmu 3+</li>
-</ul>
-</div>
+</strong>
+</body>
