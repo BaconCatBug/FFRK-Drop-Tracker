@@ -73,18 +73,19 @@
 <p>&nbsp;</p>
 5) Open the Play Store and install "Root Certificate Manager(ROOT)" by JoshTheMan. We will use this in a bit to install a certificate.
 <p>&nbsp;</p>
-6) Install <a href="http://www.proxycap.com/download.html/">ProxyCap</a>, then reboot.
+6) Install <a href="http://www.proxycap.com/download.html/">ProxyCap</a>, then reboot. THE REBOOT IS NOT OPTIONAL!
 
 <p>&nbsp;</p>
-
-7) Follow the <a href="http://www.proxycap.com/bluestacks.html/">ProxyCap Bluestacks guide</a>, with the following exeptions:<br><li>For both the HTTP and HTTPS proxy, set the hostname to 127.0.0.1 and the port to 8888</li><br><li>When you create the HTTP proxy RULE (not the proxy itself), say "Yes" when it asks to restrict the port. </li><br><li>Follow the Extended Configuration and set all three .exe to use the HTTPS proxy</li>
+7a) <a href="https://drive.google.com/file/d/1Uf5n2CHj88x3oHtFBaOAu4VLylX4uST8/view?usp=sharing">Download the Ruleset for Proxycap</a> and apply it by right clicking ProxyCap > Configuration > Ruleset > Load.
+<br><br>
+7b) Alternitively, follow the <a href="http://www.proxycap.com/bluestacks.html/">ProxyCap Bluestacks guide</a>, with the following exeptions:<br><li>For both the HTTP and HTTPS proxy, set the hostname to 127.0.0.1 and the port to 8888</li><br><li>When you create the HTTP proxy RULE (not the proxy itself), say "Yes" when it asks to restrict the port. </li><br><li>The HTTPS Proxy RULE must affect all ports, not just port 433.</li><br><li>Follow the Extended Configuration and set all three .exe to use the HTTPS proxy</li><br><img src="https://i.imgur.com/cL7cOZm.png"</img><br><img src="https://i.imgur.com/eooNqzq.png"</img>
 
 <p>&nbsp;</p>
 
 8) Exit the .bat files and replace xxx.xxx.xxx.xxx with 127.0.0.1
 
 <p>&nbsp;</p>
-9) Run the Exporter .bat and enable ProxyCap. In the emulator, open a browser and go to mitm.it where it should show a list of certificates. Click the "Get mitmproxy-ca-cert.cer" button for android, then click cancel when the system popup happens.
+9) Run the Exporter or the Drop Peekr .bat and enable ProxyCap. YOU MUST HAVE ONE OF THESE RUNNING TO ACT AS A PROXY SERVER FOR THE MAGIC CERTIFICATE URL TO WORK! In the emulator, open a browser and go to mitm.it where it should show a list of certificates. Click the "Get mitmproxy-ca-cert.cer" button for android, then click cancel when the system popup happens.
 
 <p>&nbsp;</p>
 10) Open Root Certificate Manager, click the Folder at the top, click the top left Burger menu, click Downloads, then click the certificate you just downloaded, then click Import.
