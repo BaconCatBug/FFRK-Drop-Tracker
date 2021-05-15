@@ -15,6 +15,16 @@ The StackOverflow community for both being helpful angels and gatekeeping jackas
 
 Changelog
 
+#Updated to 6.19
+
+##FFRK Inventory Exporter 6.19
+
+* Updated the Inventory Exporter scripts to account for a change in the game JSON data
+
+* The game used to send Soul Break and Legend Materia information in one big chunk, the game now sends it split into 3 smaller chunks. The scripts now account for this. Special thanks to /u/TarotTiger for alerting me to this.
+
+* This is a script only change, the spreadsheets have not been changed (other than a WIP status screen that is not 100% done yet).
+
 #Updated to 6.18
 
 ##FFRK Relic Inventory Stats and Dud Relic Finder v6.18
