@@ -1,2 +1,2 @@
 title FFRK Inventory Exporter
-mitmdump -q --listen-host xxx.xxx.xxx.xxx --listen-port 8888 -s FFRK_Inventory_Exporter_v6.18.py
+mitmdump -q --listen-host xxx.xxx.xxx.xxx --listen-port 8888 -s FFRK_Inventory_Exporter_v6.19.py

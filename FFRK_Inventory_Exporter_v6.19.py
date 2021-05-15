@@ -19,7 +19,9 @@ def response(flow):
     cases = {
         '/dff/party/list_equipment': 'inventory_relics',
         '/dff/party/list_other': 'list_other',
-        '/dff/party/list_buddy': 'soul_breaks',
+        '/dff/party/list_buddy?part=0&split=3': 'soul_breaks0',
+        '/dff/party/list_buddy?part=1&split=3': 'soul_breaks1',
+        '/dff/party/list_buddy?part=2&split=3': 'soul_breaks1',
         '/dff/beast/list1': 'main_magicite1',
         '/dff/beast/list2': 'main_magicite2',
         '/dff/warehouse/get_equipment_list': 'vault_relic',
@@ -53,12 +55,19 @@ def response(flow):
         if export_raw_json == 1:
             exportRawJson(data, 'get_equipment_list')
 
-    elif cases[flow.request.path] == 'soul_breaks':
-        getSBs(data['soul_strikes'], '3-FFRK-Soul_Breaks')
-        getLMs(data['legend_materias'], '7-FFRK-Legend_Materia')
+    elif cases[flow.request.path] == 'soul_breaks0':
+        getSBs(data['soul_strikes'], '3-FFRK-Soul_Breaks',0)
+        getLMs(data['legend_materias'], '7-FFRK-Legend_Materia',0)
         # getBuddies(data['buddies'], 'X-FFRK-Characters')
         if export_raw_json == 1:
-            exportRawJson(data, 'list_buddy')
+            exportRawJson(data, 'list_buddy',0)
+            
+    elif cases[flow.request.path] == 'soul_breaks1':
+        getSBs(data['soul_strikes'], '3-FFRK-Soul_Breaks',1)
+        getLMs(data['legend_materias'], '7-FFRK-Legend_Materia',1)
+        # getBuddies(data['buddies'], 'X-FFRK-Characters')
+        if export_raw_json == 1:
+            exportRawJson(data, 'list_buddy',1)
 
     elif cases[flow.request.path] == 'list_other':
         getAbilities(data['abilities'], '4-FFRK-Abilities')
@@ -262,7 +271,7 @@ def getOrbs(data, filename):
             f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3]))
 
 
-def getSBs(data, filename):
+def getSBs(data, filename, n):
     teir = {0: '???', 1: 'Default', 2: 'Shared', 3: 'Unique', 4: 'Super', 5: 'Burst', 6: 'Overstrike', 7: 'Ultra',
             8: 'Chain', 9: 'Arcane Overstrike', 10: 'Glint', 11: 'Awakening', 12: 'Syncro', 13: 'Limit Break Overstrike', 14: 'Limit Break Glint', 15: '???', 16: '???', 17: '???'}
     elems = []
@@ -287,13 +296,17 @@ def getSBs(data, filename):
                 elems.append([sb_id, name, char_id, char, category_id, category])
 
     elems = sorted(elems, key=lambda x: (x[0], x[2], x[4]))
+    if n == 0:
+        with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+            f.write('\ufeff')
+            f.write('#ID, Soul Break, Character ID, Character, Type ID, Type\n')
 
-    with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-        f.write('\ufeff')
-        f.write('#ID, Soul Break, Character ID, Character, Type ID, Type\n')
-
-        for elem in elems:
-            f.write('"{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
+            for elem in elems:
+                f.write('"{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
+    else:
+        with open('{}.csv'.format(filename), 'a', encoding="utf-8") as f:
+            for elem in elems:
+                f.write('"{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
 
 
 def getMagicite(data, filename):
@@ -446,7 +459,7 @@ def getBuddies(data, filename):
                 elem[11], elem[12], elem[13], elem[14], elem[15]))
 
 
-def getLMs(data, filename):
+def getLMs(data, filename, n):
     elems = []
 
     for elem in data:
@@ -458,13 +471,17 @@ def getLMs(data, filename):
         elems.append([lm_id, charname, name, description])
 
     elems = sorted(elems, key=lambda x: (x[0], x[1], x[2]))
+    if n == 0:
+        with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+            f.write('\ufeff')
+            f.write('#ID, Character, LM Name, Effect\n')
+            for elem in elems:
+                f.write('"{}","{}","{}",{}\n'.format(elem[0], elem[1], elem[2], elem[3]))
+    else:
+        with open('{}.csv'.format(filename), 'a', encoding="utf-8") as f:
+            for elem in elems:
+                f.write('"{}","{}","{}",{}\n'.format(elem[0], elem[1], elem[2], elem[3]))
 
-    with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-        f.write('\ufeff')
-        f.write('#ID, Character, LM Name, Effect\n')
-
-        for elem in elems:
-            f.write('"{}","{}","{}",{}\n'.format(elem[0], elem[1], elem[2], elem[3]))
 
 
 def getEquipHistory(data, filename):
