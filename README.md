@@ -15,6 +15,17 @@ The StackOverflow community for both being helpful angels and gatekeeping jackas
 
 Changelog
 
+#Updated to 6.20
+
+##FFRK Relic Inventory Stats and Dud Relic Finder v6.20
+
+* Now supports Hero Artifacts. It will even show what the inherited buff is!
+* Due to the nature of Hero Artifacts, this requires an update to the v6.20 spreadsheet and scripts for them to work.
+
+## FFRK Soul Break, Ability and Orb Graphical Inventory v6.20
+
+* Finalised the Status and Other tab, it's as good as I am gonna get it. :shrug:
+
 #Updated to 6.19
 
 ##FFRK Inventory Exporter 6.19
