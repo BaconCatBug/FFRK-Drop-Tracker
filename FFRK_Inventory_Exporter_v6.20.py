@@ -94,7 +94,6 @@ def response(flow):
     if export_raw_json == 1:
         exportRawJson(data, 'get_beast_list')
 
-
 def getRelics(data, filename):
     elems = []
 
@@ -182,7 +181,6 @@ def getRMs(data, filename):
         for elem in elems:
             f.write('"{}","{}"\n'.format(elem[0], elem[1]))
 
-
 def getAbilities(data, filename):
     elems = []
 
@@ -206,7 +204,6 @@ def getAbilities(data, filename):
         for elem in elems:
             f.write('"{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
 
-
 def getOrbs(data, filename):
     elems = []
 
@@ -228,7 +225,6 @@ def getOrbs(data, filename):
 
         for elem in elems:
             f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3]))
-
 
 def getSBs(data, filename, n):
     teir = {0: '???', 1: 'Default', 2: 'Shared', 3: 'Unique', 4: 'Super', 5: 'Burst', 6: 'Overstrike', 7: 'Ultra',
@@ -266,7 +262,6 @@ def getSBs(data, filename, n):
         with open('{}.csv'.format(filename), 'a', encoding="utf-8") as f:
             for elem in elems:
                 f.write('"{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
-
 
 def getMagicite(data, filename):
     elems = []
@@ -340,10 +335,6 @@ def getMagicite2(data, filename):
             fp.write(data)
         remove('5-FFRK-Magicite1.csv')
         remove('5-FFRK-Magicite2.csv')
-        
-
-
-
 
 def getVaultMagicite(data, filename):
     elems = []
@@ -364,7 +355,6 @@ def getVaultMagicite(data, filename):
 
         for elem in elems:
             f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3]))
-
 
 def getBuddies(data, filename):
     elems = []
@@ -442,7 +432,6 @@ def getLMs(data, filename, n):
                 f.write('"{}","{}","{}",{}\n'.format(elem[0], elem[1], elem[2], elem[3]))
 
 
-
 def getEquipHistory(data, filename):
     elems = []
 
@@ -469,80 +458,3 @@ def exportRawJson(data, filename):
     with open('{}.json'.format(filename), 'w', encoding="utf-8") as json_file:
         dump(data, json_file)
 
-
-def getVaultMagicite(data, filename):
-    elems = []
-
-    for elem in data:
-        magicite_id = elem['beast_id']
-        name = elem['name']
-        rarity = elem['rarity']
-        level = elem['level']
-
-        elems.append([magicite_id, name, rarity, level])
-
-    elems = sorted(elems, key=lambda x: (-x[3], x[0], x[1]))
-
-    with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-        f.write('\ufeff')
-        f.write('#ID, Name, Rarity, Level\n')
-
-        for elem in elems:
-            f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3]))
-
-
-def getBuddies(data, filename):
-    elems = []
-
-    for elem in data:
-        buddy_id = elem['buddy_id']
-        realm_id = int(str(elem['series_id'])[1:3]) if elem['series_id'] < 200000 else 99
-        if realm_id == 99:
-            realm = 'CORE'
-        elif realm_id == 50:
-            realm = 'FFT'
-        elif realm_id == 60:
-            realm = 'Type-0'
-        elif realm_id == 70:
-            realm = 'KH'
-        elif realm_id == 90:
-            realm = 'Beyond'
-        else:
-            realm = str(realm_id)
-
-        name = elem['name']
-        job = elem['job_name']
-        level = elem['level']
-        max_level = elem['level_max']
-        s_levels = elem['sphere_skill_level']
-        hp = elem['hp']
-        accuracy = elem['acc']
-        attack = elem['atk']
-        defense = elem['def']
-        magic = elem['matk']
-        resistance = elem['mdef']
-        mind = elem['mnd']
-        speed = elem['spd']
-        evasion = elem['eva']
-
-        elems.append(
-            [buddy_id, realm, name, job, level, max_level, s_levels, hp, accuracy, attack, defense, magic, resistance,
-             mind,
-             speed, evasion])
-
-    elems = sorted(elems, key=lambda x: (x[0], x[2], x[1]))
-
-    with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
-        f.write('\ufeff')
-        f.write(
-            '#ID, Series,  Name, Job, Level, Max Level, Sphere Levels, HP, Accuracy, Attack, Defense, Magic, Resistance, Mind, Speed, Evasion\n')
-
-        for elem in elems:
-            f.write('"{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}"\n'.format(
-                elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7], elem[8], elem[9], elem[10],
-                elem[11], elem[12], elem[13], elem[14], elem[15]))
-
-
-def exportRawJson(data, filename):
-    with open('{}.json'.format(filename), 'w', encoding="utf-8") as json_file:
-        dump(data, json_file)
