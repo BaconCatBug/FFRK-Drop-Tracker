@@ -37,6 +37,7 @@ def response(flow):
 
     if cases[flow.request.path] == 'inventory_relics':
         getRelics(data['equipments'], '1-FFRK-Inventory-Relics')
+        #getHeroRelics(data['equipments'], '8-FFRK-Hero-Artifacts')
         if export_raw_json == 1:
             exportRawJson(data, 'list_equipment')
 
@@ -56,15 +57,15 @@ def response(flow):
             exportRawJson(data, 'get_equipment_list')
 
     elif cases[flow.request.path] == 'soul_breaks0':
-        getSBs(data['soul_strikes'], '3-FFRK-Soul_Breaks',0)
-        getLMs(data['legend_materias'], '7-FFRK-Legend_Materia',0)
+        getSBs(data['soul_strikes'], '3-FFRK-Soul-Breaks',0)
+        getLMs(data['legend_materias'], '7-FFRK-Legend-Materia',0)
         # getBuddies(data['buddies'], 'X-FFRK-Characters')
         if export_raw_json == 1:
             exportRawJson(data, 'list_buddy',0)
             
     elif cases[flow.request.path] == 'soul_breaks1':
-        getSBs(data['soul_strikes'], '3-FFRK-Soul_Breaks',1)
-        getLMs(data['legend_materias'], '7-FFRK-Legend_Materia',1)
+        getSBs(data['soul_strikes'], '3-FFRK-Soul-Breaks',1)
+        getLMs(data['legend_materias'], '7-FFRK-Legend-Materia',1)
         # getBuddies(data['buddies'], 'X-FFRK-Characters')
         if export_raw_json == 1:
             exportRawJson(data, 'list_buddy',1)
@@ -72,24 +73,24 @@ def response(flow):
     elif cases[flow.request.path] == 'list_other':
         getAbilities(data['abilities'], '4-FFRK-Abilities')
         getOrbs(data['materials'], '6-FFRK-Orbs')
-        # getRMs(data['record_materias'], 'X-FFRK-Inventory-Record_Materia')
+        # getRMs(data['record_materias'], 'X-FFRK-Inventory-Record-Materia')
         if export_raw_json == 1:
             exportRawJson(data, 'list_other')
 
     elif cases[flow.request.path] == 'equip_collection':
-        print()
+        pass
         # getEquipHistory(data['equipment_references'], 'X-FFRK-Equipment-Collection')
     if export_raw_json == 1:
         exportRawJson(data, 'equip_collection')
 
     elif cases[flow.request.path] == 'vault_rm':
-        print()
-        # getRMs(data['record_materias'], 'X-FFRK-Vault-Record_Materia')
+        pass
+        # getRMs(data['record_materias'], 'X-FFRK-Vault-Record-Materia')
     if export_raw_json == 1:
         exportRawJson(data, 'get_record_materia_list')
 
     elif cases[flow.request.path] == 'vault_magicite':
-        print()
+        pass
         # getVaultMagicite(data['beasts'], 'X-FFRK-Vault-Magicite')
     if export_raw_json == 1:
         exportRawJson(data, 'get_beast_list')
@@ -104,13 +105,26 @@ def getRelics(data, filename):
         base_rarity = elem['base_rarity']
         rarity = elem['rarity']
         realm_id = int(str(elem['series_id'])[1:3]) if elem['series_id'] > 10 else 99
-        if modified_id_export == 1:
+        if modified_id_export == 1 and elem['rarity'] < 101:
             if (rarity - base_rarity) == 1:
                 relic_id = relic_id*10 + 1
             elif (rarity - base_rarity) == 2:
                 relic_id = relic_id*10 + 2
             elif (rarity - base_rarity) == 3:
                 relic_id = relic_id*10 + 3
+            else:
+                relic_id = relic_id*10
+        
+        if modified_id_export == 1 and elem['rarity'] == 101:
+            if (name.endswith(')+++')):
+                relic_id = relic_id*10 + 3
+                rarity += 3
+            elif (name.endswith(')++')):
+                relic_id = relic_id*10 + 2
+                rarity += 2
+            elif (name.endswith(')+')):
+                relic_id = relic_id*10 + 1
+                rarity += 1
             else:
                 relic_id = relic_id*10
         rosetta_param = elem['hammering_affect_param_key']
@@ -126,28 +140,84 @@ def getRelics(data, filename):
             rosetta_mdef = rosetta_value
         elif rosetta_param == 'mnd':
             rosetta_mnd = rosetta_value
+        inherit_effect = ''
+        if elem['rarity'] == 101:
+            inherit_effect = elem['buddy_sacred_equipment_materias'][0]['record_materia']['name']
 
         elems.append(
             [relic_id, name, base_rarity, rarity, realm_id, rosetta_atk, rosetta_def, rosetta_matk, rosetta_mdef,
-             rosetta_mnd])
+             rosetta_mnd, inherit_effect])
 
     elems = sorted(elems, key=lambda x: (x[0], -x[3], x[4], x[1]))
 
     with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
         f.write('\ufeff')
-        f.write('#ID, Item, Base Rarity, Rarity, Realm, A.Atk, A.Def, A.Mag, A.Res, A.Mnd\n')
+        f.write('#ID, Item, Base Rarity, Rarity, Realm, A.Atk, A.Def, A.Mag, A.Res, A.Mnd, Inherit Effect\n')
 
         for elem in elems:
             if ignore_three_star_and_lower_relics == 1:
                 if elem[3] > 3:
                     f.write(
-                        '"{}","{}","{}","{}","{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3],
+                        '"{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3],
                                                                                      elem[4], elem[5], elem[6], elem[7],
-                                                                                     elem[8], elem[9]))
+                                                                                     elem[8], elem[9], elem[10]))
             else:
-                f.write('"{}","{}","{}, {}","{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3],
+                f.write('"{}","{}","{}, {}","{}","{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3],
                                                                                     elem[4], elem[5], elem[6], elem[7],
-                                                                                    elem[8], elem[9]))
+                                                                                    elem[8], elem[9], elem[10]))
+
+
+def getHeroRelics(data, filename):
+    elems = []
+    elems101 = []
+    for elem in data:
+        if elem['rarity'] == 101:
+            elems101.append(elem)
+    
+    for elem in elems101:
+        relic_id = elem['equipment_id']
+        name = elem['name'].replace(u'＋', '+')
+        base_rarity = elem['base_rarity']
+        rarity = elem['rarity']
+        realm_id = int(str(elem['series_id'])[1:3]) if elem['series_id'] > 10 else 99
+        if modified_id_export == 1:
+            if (name.endswith(')+++')):
+                relic_id = relic_id*10 + 3
+            elif (name.endswith(')++')):
+                relic_id = relic_id*10 + 2
+            elif (name.endswith(')+')):
+                relic_id = relic_id*10 + 1
+            else:
+                relic_id = relic_id*10
+        inherit_effect = elem['buddy_sacred_equipment_materias'][0]['record_materia']['name']
+        rosetta_param = elem['hammering_affect_param_key']
+        rosetta_value = elem['hammering_num']
+        rosetta_atk = rosetta_def = rosetta_matk = rosetta_mdef = rosetta_mnd = 0
+        if rosetta_param == 'atk':
+            rosetta_atk = rosetta_value
+        elif rosetta_param == 'def':
+            rosetta_def = rosetta_value
+        elif rosetta_param == 'matk':
+            rosetta_matk = rosetta_value
+        elif rosetta_param == 'mdef':
+            rosetta_mdef = rosetta_value
+        elif rosetta_param == 'mnd':
+            rosetta_mnd = rosetta_value
+
+        elems.append(
+            [relic_id, name, base_rarity, rarity, realm_id, inherit_effect, rosetta_atk, rosetta_def, rosetta_matk, rosetta_mdef, rosetta_mnd])
+
+    elems = sorted(elems, key=lambda x: (x[0], -x[3], x[4], x[1]))
+
+    with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
+        f.write('\ufeff')
+        f.write('#ID, Item, Base Rarity, Rarity, Realm, Inherit Effect, A.Atk, A.Def, A.Mag, A.Res, A.Mnd\n')
+
+        for elem in elems:
+            if elem[3] == 101:
+                f.write('"{}","{}","{}","{}","{}","{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3],
+                                                                                     elem[4], elem[5], elem[6], elem[7],
+                                                                                     elem[8], elem[9], elem[10]))
 
 
 def getVaultRelics(data, filename):
