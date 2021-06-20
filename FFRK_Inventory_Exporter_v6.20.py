@@ -14,7 +14,6 @@ modified_id_export = 1
 
 print("Enter your Item Inventory, and then your Vault, to export all data.")
 
-
 def response(flow):
     cases = {
         '/dff/party/list_equipment': 'inventory_relics',
@@ -407,7 +406,6 @@ def getBuddies(data, filename):
                 elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], elem[6], elem[7], elem[8], elem[9], elem[10],
                 elem[11], elem[12], elem[13], elem[14], elem[15]))
 
-
 def getLMs(data, filename, n):
     elems = []
 
@@ -431,7 +429,6 @@ def getLMs(data, filename, n):
             for elem in elems:
                 f.write('"{}","{}","{}",{}\n'.format(elem[0], elem[1], elem[2], elem[3]))
 
-
 def getEquipHistory(data, filename):
     elems = []
 
@@ -452,7 +449,6 @@ def getEquipHistory(data, filename):
 
         for elem in elems:
             f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[4]))
-
 
 def exportRawJson(data, filename):
     with open('{}.json'.format(filename), 'w', encoding="utf-8") as json_file:
