@@ -15,6 +15,18 @@ The StackOverflow community for both being helpful angels and gatekeeping jackas
 
 Changelog
 
+#Updated to 6.21
+
+* Renamed the Hero Artifact Peeker to Labyrinth Peeker as it can now see fight information in addition to chests.
+
+* Added the ability to see the enemy names of fights behind the three active paintings, even if it's hidden behind a powerful painting.
+
+* Added the ability to see fight information for forced fights via Exploration paintings. Note that you'll only be able to see what the fight is after picking the Exploration painting, you can't see if the Exploration painting will result in a fight before picking it.
+
+* Added a programmatically generated indication of what elements the fight will absorb, nullify, be weak to, or resist. Since this generates the elemental information from the painting data's JSON it should, in theory, be "future proof" (though I don't doubt it will break at some point).
+
+* This is a Script Only update, there is no requirement to update the accompanying spreadsheets if you use them.
+
 #Updated to 6.20
 
 ##FFRK Relic Inventory Stats and Dud Relic Finder v6.20
