@@ -71,41 +71,31 @@ def parseFights(data):
             exceptioncatcher = data['labyrinth_dungeon_session']['current_painting_status']
             if data['labyrinth_dungeon_session']['current_painting_status'] == 3:
                 try:
-                    left_fight = \
-                        data['labyrinth_dungeon_session']['display_paintings'][0]['dungeon']['captures'][0][
-                            'tip_battle']['title']
-                    print(left_fight)
-                    forced_info = data['labyrinth_dungeon_session']['dungeon']['captures'][0]['tip_battle'][
-                        'html_content']
+                    forced_fight = data['labyrinth_dungeon_session']['dungeon']['captures'][0]['tip_battle']['title']
+                    forced_info = data['labyrinth_dungeon_session']['dungeon']['captures'][0]['tip_battle']['html_content']
                     forced_elemental_info = parse_elemental_info(forced_info)
                     print('\n#####################################\n#########' + strftime(
-                        '%Y-%m-%d %H:%M:%S') + '#########\n#####################################\nFORCED FIGHT: ' + str(
-                        forced_elemental_info))
+                        '%Y-%m-%d %H:%M:%S') + '#########\n#####################################\nFORCED FIGHT: ' + str(forced_fight[:-12]) + '\n              ' + str(
+                    forced_elemental_info).replace(',', '\n              ') + '\n')
                 except:
                     # print(format_exc())
                     pass
                 return
             try:
-                left_fight = \
-                    data['labyrinth_dungeon_session']['display_paintings'][0]['dungeon']['captures'][0]['tip_battle']['title']
-                left_info = \
-                    data['labyrinth_dungeon_session']['display_paintings'][0]['dungeon']['captures'][0]['tip_battle']['html_content']
+                left_fight = data['labyrinth_dungeon_session']['display_paintings'][0]['dungeon']['captures'][0]['tip_battle']['title']
+                left_info = data['labyrinth_dungeon_session']['display_paintings'][0]['dungeon']['captures'][0]['tip_battle']['html_content']
                 left_elemental_info = parse_elemental_info(left_info)
             except Exception:
                 left_fight = None
             try:
-                center_fight = \
-                    data['labyrinth_dungeon_session']['display_paintings'][1]['dungeon']['captures'][0]['tip_battle']['title']
-                center_info = \
-                    data['labyrinth_dungeon_session']['display_paintings'][1]['dungeon']['captures'][0]['tip_battle']['html_content']
+                center_fight = data['labyrinth_dungeon_session']['display_paintings'][1]['dungeon']['captures'][0]['tip_battle']['title']
+                center_info = data['labyrinth_dungeon_session']['display_paintings'][1]['dungeon']['captures'][0]['tip_battle']['html_content']
                 center_elemental_info = parse_elemental_info(center_info)
             except Exception:
                 center_fight = None
             try:
-                right_fight = \
-                    data['labyrinth_dungeon_session']['display_paintings'][2]['dungeon']['captures'][0]['tip_battle']['title']
-                right_info = \
-                    data['labyrinth_dungeon_session']['display_paintings'][2]['dungeon']['captures'][0]['tip_battle']['html_content']
+                right_fight = data['labyrinth_dungeon_session']['display_paintings'][2]['dungeon']['captures'][0]['tip_battle']['title']
+                right_info = data['labyrinth_dungeon_session']['display_paintings'][2]['dungeon']['captures'][0]['tip_battle']['html_content']
                 right_elemental_info = parse_elemental_info(right_info)
             except Exception:
                 right_fight = None
