@@ -195,7 +195,7 @@ def parse_elemental_info(raw_elemental_info):
                 if processed_elemental_info3 != '':
                     processed_elemental_info3 += ' | '
                 processed_elemental_info3 += elementalmap[count] + ' Immune'
-            elif elem.find('text-absorption') > 0:
+            elif elem.find('text-absorption') > 0 and 17 < count <= 26:
                 if processed_elemental_info3 != '':
                     processed_elemental_info3 += ' | '
                 processed_elemental_info3 += elementalmap[count] + ' Absorb'
