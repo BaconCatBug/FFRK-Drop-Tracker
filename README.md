@@ -15,6 +15,14 @@ The StackOverflow community for both being helpful angels and gatekeeping jackas
 
 Changelog
 
+# Updated to 6.21.1
+
+* Fixed an issue were certain fights were not displaying elemental info.
+
+* Fixed a bug where fights with enemies that have different elemental weaknesses were sometimes not displaying elemental info.
+
+* Fixed a bug where Doga's Clone would have a `\\` in the elemental info.
+
 #Updated to 6.21
 
 * Renamed the Hero Artifact Peeker to Labyrinth Peeker as it can now see fight information in addition to chests.

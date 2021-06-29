@@ -122,7 +122,7 @@ def parse_elemental_info(raw_elemental_info):
         phase_info_split = findall('(?:>(.+?)<)', str(phase_info_split))
         phase_info_parsed = []
         for elem in phase_info_split:
-            if len(elem) >= 5:
+            if len(elem) >= 4:
                 phase_info_parsed.append(elem.replace('\\',''))
         processed_elemental_info = dict()
         processed_elemental_info1 = ''
@@ -172,7 +172,7 @@ def parse_elemental_info(raw_elemental_info):
             elif elem.find('text-half') > 0 and 8 < count <= 17:
                 if processed_elemental_info2 != '':
                     processed_elemental_info2 += ' | '
-                processed_elemental_info2 += elementalmap[count] + ' Resist'
+                processed_elemental_info2 += elementalmap[count-9] + ' Resist'
             if processed_elemental_info2 == 'Fire Resist | Ice Resist | Lightning Resist | Earth Resist | Wind Resist | Water Resist | Holy Resist | Dark Resist | Poison Resist':
                 processed_elemental_info2 = 'Resists All Elements'
             if processed_elemental_info2 == 'Fire Weak | Ice Weak | Lightning Weak | Earth Weak | Wind Weak | Water Weak | Holy Weak | Dark Weak | Poison Weak':
