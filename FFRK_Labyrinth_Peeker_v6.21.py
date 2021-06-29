@@ -123,7 +123,7 @@ def parse_elemental_info(raw_elemental_info):
         phase_info_parsed = []
         for elem in phase_info_split:
             if len(elem) >= 5:
-                phase_info_parsed.append(elem)
+                phase_info_parsed.append(elem.replace('\\',''))
         processed_elemental_info = dict()
         processed_elemental_info1 = ''
         processed_elemental_info2 = ''
