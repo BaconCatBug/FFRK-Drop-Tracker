@@ -119,8 +119,12 @@ def parse_elemental_info(raw_elemental_info):
             '(?s:<div class="p-icon-[fire|ice|thunder|soil|wind|water|holy|darkness|poison].+?<div class="p-text-.+? img-rep mlr-a mt-6"></div>)',
             raw_elemental_info)
         phase_info_split = findall('(?:<div class="s-tip-battle-title mb-b4">.+?</div>)', raw_elemental_info)
-        phase_info_split = findall('(?:>(.+?)<)', str(phase_info_split))
+        for count, elem in enumerate(phase_info_split):
+            phase_info_split[count]=elem.replace('<div class="s-tip-battle-title mb-b4">','')
+            phase_info_split[count]=phase_info_split[count].replace('</div>','')
+
         phase_info_parsed = []
+        
         for elem in phase_info_split:
             if len(elem) >= 4:
                 phase_info_parsed.append(elem.replace('\\',''))
