@@ -21,10 +21,7 @@ poolmap = {
     '5': '███████████████████████\n█████HERO ARTIFACT█████\n███████████████████████'
 }
 elementalmap = {
-    0: 'Fire', 1: 'Ice', 2: 'Lightning', 3: 'Earth', 4: 'Wind', 5: 'Water', 6: 'Holy', 7: 'Dark',
-    8: 'Poison', 9: 'Fire', 10: 'Ice', 11: 'Lightning', 12: 'Earth', 13: 'Wind', 14: 'Water', 15: 'Holy',
-    16: 'Dark', 17: 'Poison', 18: 'Fire', 19: 'Ice', 20: 'Lightning', 21: 'Earth', 22: 'Wind', 23: 'Water',
-    24: 'Holy', 25: 'Dark', 26: 'Poison'
+    0: 'Fire', 1: 'Ice', 2: 'Lightning', 3: 'Earth', 4: 'Wind', 5: 'Water', 6: 'Holy', 7: 'Dark', 8: 'Poison'
 }
 
 # Initial Load
@@ -125,7 +122,7 @@ def parse_elemental_info(raw_elemental_info):
         phase_info_split = findall('(?:>(.+?)<)', str(phase_info_split))
         phase_info_parsed = []
         for elem in phase_info_split:
-            if len(elem) > 5:
+            if len(elem) >= 5:
                 phase_info_parsed.append(elem)
         processed_elemental_info = dict()
         processed_elemental_info1 = ''
@@ -163,15 +160,15 @@ def parse_elemental_info(raw_elemental_info):
             if elem.find('text-weak') > 0 and 8 < count <= 17:
                 if processed_elemental_info2 != '':
                     processed_elemental_info2 += ' | '
-                processed_elemental_info2 += elementalmap[count] + ' Weak'
+                processed_elemental_info2 += elementalmap[count-9] + ' Weak'
             elif elem.find('text-void') > 0 and 8 < count <= 17:
                 if processed_elemental_info2 != '':
                     processed_elemental_info2 += ' | '
-                processed_elemental_info2 += elementalmap[count] + ' Immune'
+                processed_elemental_info2 += elementalmap[count-9] + ' Immune'
             elif elem.find('text-absorption') > 0 and 8 < count <= 17:
                 if processed_elemental_info2 != '':
                     processed_elemental_info2 += ' | '
-                processed_elemental_info2 += elementalmap[count] + ' Absorb'
+                processed_elemental_info2 += elementalmap[count-9] + ' Absorb'
             elif elem.find('text-half') > 0 and 8 < count <= 17:
                 if processed_elemental_info2 != '':
                     processed_elemental_info2 += ' | '
@@ -190,19 +187,19 @@ def parse_elemental_info(raw_elemental_info):
             if elem.find('text-weak') > 0 and 17 < count <= 26:
                 if processed_elemental_info3 != '':
                     processed_elemental_info3 += ' | '
-                processed_elemental_info3 += elementalmap[count] + ' Weak'
+                processed_elemental_info3 += elementalmap[count-18] + ' Weak'
             elif elem.find('text-void') > 0 and 17 < count <= 26:
                 if processed_elemental_info3 != '':
                     processed_elemental_info3 += ' | '
-                processed_elemental_info3 += elementalmap[count] + ' Immune'
+                processed_elemental_info3 += elementalmap[count-18] + ' Immune'
             elif elem.find('text-absorption') > 0 and 17 < count <= 26:
                 if processed_elemental_info3 != '':
                     processed_elemental_info3 += ' | '
-                processed_elemental_info3 += elementalmap[count] + ' Absorb'
+                processed_elemental_info3 += elementalmap[count-18] + ' Absorb'
             elif elem.find('text-half') > 0 and 17 < count <= 26:
                 if processed_elemental_info3 != '':
                     processed_elemental_info3 += ' | '
-                processed_elemental_info3 += elementalmap[count] + ' Resist'
+                processed_elemental_info3 += elementalmap[count-18] + ' Resist'
             if processed_elemental_info3 == 'Fire Resist | Ice Resist | Lightning Resist | Earth Resist | Wind Resist | Water Resist | Holy Resist | Dark Resist | Poison Resist':
                 processed_elemental_info3 = 'Resists All Elements'
             if processed_elemental_info3 == 'Fire Weak | Ice Weak | Lightning Weak | Earth Weak | Wind Weak | Water Weak | Holy Weak | Dark Weak | Poison Weak':
