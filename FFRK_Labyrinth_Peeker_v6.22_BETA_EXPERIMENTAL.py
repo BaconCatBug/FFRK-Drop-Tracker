@@ -12,9 +12,9 @@ flush_old_data = True
 
 # Script Variables, don't edit these!
 case_map = {
-    '/dff/event/labyrinth/4500/select_painting': 'DoTheThings',
-    '/dff/event/labyrinth/4500/choose_explore_painting': 'DoTheThings',
-    '/dff/event/labyrinth/4500/get_display_paintings': 'DoTheThings'
+    '/dff/event/labyrinth/4500/select_painting': 'ParseTheData',
+    '/dff/event/labyrinth/4500/choose_explore_painting': 'ParseTheData',
+    '/dff/event/labyrinth/4500/get_display_paintings': 'ParseTheData'
 }
 treasure_pool_map = {
     '1': '5* Orbs | 5* Motes',
@@ -38,7 +38,7 @@ def response(flow):
     if flow.request.path not in case_map.keys():
         return
     data = loads(flow.response.content.decode('utf-8-sig'))
-    if case_map[flow.request.path] == 'DoTheThings':
+    if case_map[flow.request.path] == 'ParseTheData':
         if flush_old_data:
             cls()
         parseTreasure(data)
