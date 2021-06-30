@@ -40,7 +40,8 @@ def response(flow):
 
     if casemap[flow.request.path] == 'DoTheThings':
         parseTreasure(data)
-        parseFights(data)
+        if peek_at_fights:
+            parseFights(data)
 
 
 def parseTreasure(data):
@@ -62,55 +63,54 @@ def parseTreasure(data):
 
 
 def parseFights(data):
-    if peek_at_fights:
-        left_elemental_info = center_elemental_info = right_elemental_info = ''
-        try:
-            exceptioncatcher = data['labyrinth_dungeon_session']['current_painting_status']
-            if data['labyrinth_dungeon_session']['current_painting_status'] == 3:
-                try:
-                    forced_fight = data['labyrinth_dungeon_session']['dungeon']['captures'][0]['tip_battle']['title']
-                    forced_info = data['labyrinth_dungeon_session']['dungeon']['captures'][0]['tip_battle']['html_content']
-                    forced_elemental_info = parse_elemental_info(forced_info)
-                    print('\n#####################################\n#########' + strftime(
-                        '%Y-%m-%d %H:%M:%S') + '#########\n#####################################\nFORCED FIGHT: ' + str(forced_fight[:-12]) + '\n              ' + str(
-                    forced_elemental_info).replace(',', '\n              ') + '\n')
-                except:
-                    # print(format_exc())
-                    pass
-                return
+    left_elemental_info = center_elemental_info = right_elemental_info = ''
+    try:
+        exceptioncatcher = data['labyrinth_dungeon_session']['current_painting_status']
+        if data['labyrinth_dungeon_session']['current_painting_status'] == 3:
             try:
-                left_fight = data['labyrinth_dungeon_session']['display_paintings'][0]['dungeon']['captures'][0]['tip_battle']['title']
-                left_info = data['labyrinth_dungeon_session']['display_paintings'][0]['dungeon']['captures'][0]['tip_battle']['html_content']
-                left_elemental_info = parse_elemental_info(left_info)
-            except Exception:
-                left_fight = None
-            try:
-                center_fight = data['labyrinth_dungeon_session']['display_paintings'][1]['dungeon']['captures'][0]['tip_battle']['title']
-                center_info = data['labyrinth_dungeon_session']['display_paintings'][1]['dungeon']['captures'][0]['tip_battle']['html_content']
-                center_elemental_info = parse_elemental_info(center_info)
-            except Exception:
-                center_fight = None
-            try:
-                right_fight = data['labyrinth_dungeon_session']['display_paintings'][2]['dungeon']['captures'][0]['tip_battle']['title']
-                right_info = data['labyrinth_dungeon_session']['display_paintings'][2]['dungeon']['captures'][0]['tip_battle']['html_content']
-                right_elemental_info = parse_elemental_info(right_info)
-            except Exception:
-                right_fight = None
-            if any([left_fight, center_fight, right_fight]):
+                forced_fight = data['labyrinth_dungeon_session']['dungeon']['captures'][0]['tip_battle']['title']
+                forced_info = data['labyrinth_dungeon_session']['dungeon']['captures'][0]['tip_battle']['html_content']
+                forced_elemental_info = parse_elemental_info(forced_info)
                 print('\n#####################################\n#########' + strftime(
-                    '%Y-%m-%d %H:%M:%S') + '#########\n#####################################')
-            if left_fight is not None:
-                print('Left Painting:   ' + str(left_fight[:-12]) + '\n                 ' + str(
-                    left_elemental_info).replace(',', '\n                 ') + '\n')
-            if center_fight is not None:
-                print('Center Painting: ' + str(center_fight[:-12]) + '\n                 ' + str(
-                    center_elemental_info).replace(',', '\n                 ') + '\n')
-            if right_fight is not None:
-                print('Right Painting:  ' + str(right_fight[:-12]) + '\n                 ' + str(
-                    right_elemental_info).replace(',', '\n                 ') + '\n')
-        except:
-            # print(format_exc())
-            pass
+                    '%Y-%m-%d %H:%M:%S') + '#########\n#####################################\nFORCED FIGHT: ' + str(forced_fight[:-12]) + '\n              ' + str(
+                forced_elemental_info).replace(',', '\n              ') + '\n')
+            except:
+                # print(format_exc())
+                pass
+            return
+        try:
+            left_fight = data['labyrinth_dungeon_session']['display_paintings'][0]['dungeon']['captures'][0]['tip_battle']['title']
+            left_info = data['labyrinth_dungeon_session']['display_paintings'][0]['dungeon']['captures'][0]['tip_battle']['html_content']
+            left_elemental_info = parse_elemental_info(left_info)
+        except Exception:
+            left_fight = None
+        try:
+            center_fight = data['labyrinth_dungeon_session']['display_paintings'][1]['dungeon']['captures'][0]['tip_battle']['title']
+            center_info = data['labyrinth_dungeon_session']['display_paintings'][1]['dungeon']['captures'][0]['tip_battle']['html_content']
+            center_elemental_info = parse_elemental_info(center_info)
+        except Exception:
+            center_fight = None
+        try:
+            right_fight = data['labyrinth_dungeon_session']['display_paintings'][2]['dungeon']['captures'][0]['tip_battle']['title']
+            right_info = data['labyrinth_dungeon_session']['display_paintings'][2]['dungeon']['captures'][0]['tip_battle']['html_content']
+            right_elemental_info = parse_elemental_info(right_info)
+        except Exception:
+            right_fight = None
+        if any([left_fight, center_fight, right_fight]):
+            print('\n#####################################\n#########' + strftime(
+                '%Y-%m-%d %H:%M:%S') + '#########\n#####################################')
+        if left_fight is not None:
+            print('Left Painting:   ' + str(left_fight[:-12]) + '\n                 ' + str(
+                left_elemental_info).replace(',', '\n                 ') + '\n')
+        if center_fight is not None:
+            print('Center Painting: ' + str(center_fight[:-12]) + '\n                 ' + str(
+                center_elemental_info).replace(',', '\n                 ') + '\n')
+        if right_fight is not None:
+            print('Right Painting:  ' + str(right_fight[:-12]) + '\n                 ' + str(
+                right_elemental_info).replace(',', '\n                 ') + '\n')
+    except:
+        # print(format_exc())
+        pass
 
 
 def parse_elemental_info(raw_elemental_info):
