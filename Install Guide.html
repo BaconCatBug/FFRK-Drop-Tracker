@@ -4,8 +4,8 @@
 }
 .spoiler {overflow:hidden;}
 .spoiler > div {-webkit-transition: all 0s ease;-moz-transition: margin 0s ease;-o-transition: all 0s ease;transition: margin 0s ease;}
-.spoilerbutton[value="Show BlueStacks Instructions"] + .spoiler > div {margin-top:-500%;}
-.spoilerbutton[value="Hide BlueStacks Instructions"] + .spoiler {padding:5px;} 
+.spoilerbutton[value="Show BlueStacks 4 Instructions"] + .spoiler > div {margin-top:-500%;}
+.spoilerbutton[value="Hide BlueStacks 4 Instructions"] + .spoiler {padding:5px;} 
 .spoilerbutton[value="Show MeMu/Android Phone/Other Emulator Instructions"] + .spoiler > div {margin-top:-500%;}
 .spoilerbutton[value="Hide MeMu/Android Phone/Other Emulator Instructions"] + .spoiler {padding:5px;} 
 </style> 
@@ -60,7 +60,7 @@
 <p>2) Run the installer, clicking next until the final window. Uncheck "Run the UI" or close it if it did run. Go to C:\Users\USERNAM\.mitmproxy and double click to install the .p12 and .cer files. Ignore the .pem files.</p>
 
 <p>&nbsp;</p>
-<input class="spoilerbutton" type="button" value="Show BlueStacks 4 Instructions" onclick="this.value=this.value=='Show BlueStacks Instructions'?'Hide BlueStacks 4 Instructions':'Show BlueStacks Instructions';">
+<input class="spoilerbutton" type="button" value="Show BlueStacks 4 Instructions" onclick="this.value=this.value=='Show BlueStacks 4 Instructions'?'Hide BlueStacks 4 Instructions':'Show BlueStacks 4 Instructions';">
 <div class="spoiler">
 <div>
 3) Download <a href="https://bstweaker.tk//">BSTweaker</a>.
@@ -97,34 +97,37 @@
 <p>&nbsp;</p>
 14) Use my Spreadsheets or Jareth's site linked at the top of the guide if you so desire.
 </div></div>
+
 <input class="spoilerbutton" type="button" value="Show MeMu/Android Phone/Other Emulator Instructions" onclick="this.value=this.value=='Show MeMu/Android Phone/Other Emulator Instructions'?'Hide MeMu/Android Phone/Other Emulator Instructions':'Show MeMu/Android Phone/Other Emulator Instructions';">
 <div class="spoiler"><div>
+<p>&nbsp;</p>
+<p>3) Open the Play Store and install "Root Certificate Manager(ROOT)" by JoshTheMan. We will use this in a bit to install a certificate.
 
-<p>3) Find your local IP and write it down somewhere. There are many ways to do this. If you're savvy enough to do it with ipconfig /all, do so. For the non-tech savvy, you can use this site, you want the top IP <a href="http://prntscr.com/feuhx6">http://prntscr.com/feuhx6</a><a href="https://www.whatismybrowser.com/detect/what-is-my-local-ip-address">https://www.whatismybrowser.com/detect/what-is-my-local-ip-address</a></p>
+<p>4) Find your local IP and write it down somewhere. There are many ways to do this. If you're savvy enough to do it with ipconfig /all, do so. For the non-tech savvy, you can use this site, you want the top IP <a href="http://prntscr.com/feuhx6">http://prntscr.com/feuhx6</a><a href="https://www.whatismybrowser.com/detect/what-is-my-local-ip-address">https://www.whatismybrowser.com/detect/what-is-my-local-ip-address</a></p>
 
 <p>&nbsp;</p>
 
-<p>4) Fire up your Android Emulator. Click "Settings", then "Wifi". If it says "Connected via wifi assistant", toggle the wifi off and on, then click to connect to the network. Long press the network, click "Modify Network", Click "Advanced Options", click on the "None" under Proxy and change it to "Manual". <a href="http://prntscr.com/feujr2">http://prntscr.com/feujr2</a></p>
+<p>5) Fire up your Android Emulator. Click "Settings", then "Wifi". If it says "Connected via wifi assistant", toggle the wifi off and on, then click to connect to the network. Long press the network, click "Modify Network", Click "Advanced Options", click on the "None" under Proxy and change it to "Manual". <a href="http://prntscr.com/feujr2">http://prntscr.com/feujr2</a></p>
 
 <p>&nbsp;</p>
 
-<p>5) Set the Proxy hostname to the IP noted down before. Set the port to 8888. In the "Bypass proxy for" box, copy and paste one of the following without quotes. If the "Save" button is greyed out, check for erroneous spaces. <a href="http://prntscr.com/feul26">http://prntscr.com/feul26</a></p>
+<p>6) Set the Proxy hostname to the IP noted down before. Set the port to 8888. In the "Bypass proxy for" box, copy and paste one of the following without quotes. If the "Save" button is greyed out, check for erroneous spaces. <a href="http://prntscr.com/feul26">http://prntscr.com/feul26</a></p>
 
 <p>Global:</p>
 
-<pre><code>127.0.0.1,lcd-prod.appspot.com,live.chartboost.com,android.clients.google.com,googleapis.com,app.adjust.io,android.googleapis.com
+<pre><code>127.0.0.1,lcd-prod.appspot.com,live.chartboost.com,android.clients.google.com,googleapis.com,app.adjust.io,android.googleapis.com,facebook.com
 </code></pre>
 
 <p>Japan:</p>
 
-<pre><code>127.0.0.1,lcd-prod.appspot.com,live.chartboost.com,android.clients.google.com,googleapis.com,ssl.sp.mbga-platform.jp,ssl.sp.mbga.jp,app.adjust.io,android.googleapis.com
+<pre><code>127.0.0.1,lcd-prod.appspot.com,live.chartboost.com,android.clients.google.com,googleapis.com,ssl.sp.mbga-platform.jp,ssl.sp.mbga.jp,app.adjust.io,android.googleapis.com,facebook.com
 </code></pre>
 
 <p><strong>IMPORTANT NOTE:</strong> Once you set up your emulator to point at the proxy, it will need to be running whenever you load up the game on that emulator.</p>
 
 <p>&nbsp;</p>
 
-<p>6) Set up a new folder somewhere for you to work in. Go here to get the scripts:</p>
+<p>7) Set up a new folder somewhere for you to work in. Go here to get the scripts:</p>
 
 <p><a href="https://github.com/BaconCatBug/FFRK-Drop-Tracker">https://github.com/BaconCatBug/FFRK-Drop-Tracker</a></p>
 
@@ -132,7 +135,7 @@
 
 <p>&nbsp;</p>
 
-<p>7) Hold Shift and Right Click some empty space and open a command window in that folder (This is important, don't run it from the start menu). Run the top script to see drops, the bottom script to export inventory:</p>
+<p>8) Hold Shift and Right Click some empty space and open a command window in that folder (This is important, don't run it from the start menu). Run the top script to see drops, the bottom script to export inventory:</p>
 
 <pre><code>mitmdump -q --listen-host xxx.xxx.xxx.xxx --listen-port 8888 -s FFRK_Drop_Tracker_v6.21.py
 </code></pre>
@@ -151,34 +154,40 @@
 <p><strong>ANOTHER IMPORTANT NOTE:</strong> Due to the -q flag, it might look like nothing is happening. This is not the case, it is still running in the background. The -q flag even suppresses the "Proxy server listening at" message.</p>
 
 <p><strong>YET ANOTHER IMPORTANT NOTE:</strong> Once you set up your emulator to point at the proxy, it will need to be running whenever you load up the game on that emulator.</p>
+<p>&nbsp;</p>
+9) Run the Exporter or the Drop Peeker .bat. YOU MUST HAVE ONE OF THESE RUNNING TO ACT AS A PROXY SERVER FOR THE MAGIC CERTIFICATE URL TO WORK! In the emulator, open a browser and go to mitm.it where it should show a list of certificates. Click the "Get mitmproxy-ca-cert.cer" button for android, then click cancel when the system popup happens. If the mitm.it site doesn't work, go to step 9a)
+<p>&nbsp;</p>
+9a) Open Root Certificate Manager, click the Folder at the top, click the top left Burger menu, click Pick from Windows, then select mitmproxy-ca-cert.cer from before. Install "Explorer" by Speed Software from the Play Store, click the Folder at the top, click explorer, go to Storage > DCIM > SharedFolder and click the certificate.
+<p>&nbsp;</p>
+10) Open Root Certificate Manager, click the Folder at the top, click the top left Burger menu, click Downloads, then click the certificate you just downloaded, then click Import.
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>11) If everything is set up correctly, mitmproxy will run and start listening for connections. <a href="http://prntscr.com/h1bacn">http://prntscr.com/h1bacn</a></p>
 
 <p>&nbsp;</p>
 
-<p>8) If everything is set up correctly, mitmproxy will run and start listening for connections. <a href="http://prntscr.com/h1bacn">http://prntscr.com/h1bacn</a></p>
-
-<p>&nbsp;</p>
-
-<p>9) In your emulator, load up FFRK.</p>
+<p>12) In your emulator, load up FFRK.</p>
 
 <p>&nbsp;</p>
 
 <p>To export your Inventory, run the command from step 7 with the FFRK_Inventory_Tracker_6.21.py in it:</p>
 
-<p>10a) Click the Inventory button, then the View/Sell Items button, then the Vault Button, then each tab in the vault.</p>
+<p>13a) Click the Inventory button, then the View/Sell Items button, then the Vault Button, then each tab in the vault.</p>
 
-<p>10b) Boom, you should have a whole bunch of .csv (Comma Separated Values) files with all your lovely data. <a href="http://prntscr.com/ff9xwc">http://prntscr.com/ff9xwc</a></p>
+<p>13b) Boom, you should have a whole bunch of .csv (Comma Separated Values) files with all your lovely data. <a href="http://prntscr.com/ff9xwc">http://prntscr.com/ff9xwc</a></p>
 
-<p>10c) Use my spreadsheets <a href="https://docs.google.com/spreadsheets/d/1aJ-y4b2-ulyEJHO2-FuH8mQkmaSrPKN04bwWHOWIFWI/">FFRK Soul Break, Ability and Orb Graphical Inventory</a> to have a nice way of sharing your stuff.</p>
+<p>13c) Use my spreadsheets <a href="https://docs.google.com/spreadsheets/d/1aJ-y4b2-ulyEJHO2-FuH8mQkmaSrPKN04bwWHOWIFWI/">FFRK Soul Break, Ability and Orb Graphical Inventory</a> to have a nice way of sharing your stuff.</p>
 
-<p>10d) Microsoft Excel is preferred. If you use Libreoffice, set the import encoding to UTF-8.</p>
+<p>13d) Microsoft Excel is preferred. If you use Libreoffice, set the import encoding to UTF-8.</p>
 
 <p>&nbsp;</p>
 
 <p>To farm drops, run the command from step 7 with the FFRK_Drop_Tracker_v6.21.py in it:</p>
 
-<p>11a) Enter a battle.</p>
+<p>14a) Enter a battle.</p>
 
-<p>11b) Boom, you should see your drops! <a href="http://prntscr.com/fht31i">http://prntscr.com/fht31i</a></p>
+<p>14b) Boom, you should see your drops! <a href="http://prntscr.com/fht31i">http://prntscr.com/fht31i</a></p>
 </div></div>
 
 
@@ -193,6 +202,7 @@
 <ul>
 <li><p>BlueStacks 4</p></li>
 <li><p>MeMu Play</p></li>
+<li><p>Nox 7+</p></li>
 <li><p><a href="https://www.reddit.com/r/FFRecordKeeper/comments/6vhyod/ffrk_drop_tracker_export_your_entire_inventory/dnde6mq/">Information on how to configure Genymotion to work
 with the scripts.</a></p></li>
 </ul>
