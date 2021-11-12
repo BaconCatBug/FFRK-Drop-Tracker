@@ -1,0 +1,12 @@
+del /f 1-FFRK-Inventory-Relics.txt
+del /f 2-FFRK-Vault-Relics.txt
+del /f 3-FFRK-Soul_Breaks.txt
+del /f 4-FFRK-Abilities.txt
+del /f 5-FFRK-Magicite.txt
+del /f 6-FFRK-Orbs.txt
+del /f 7-FFRK-Legend_Materia.txt
+del /f X-FFRK-Inventory-Record_Materia.txt
+del /f X-FFRK-Characters.txt
+del /f X-FFRK-Vault-Record_Materia.txt
+del /f X-FFRK-Vault-Magicite.txt
+del /f X-FFRK-Equipment-Collection.txt
