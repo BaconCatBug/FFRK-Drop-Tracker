@@ -201,7 +201,7 @@ def getRMs(data, filename):
     else:
         with open('{}.txt'.format(filename), 'w', encoding="utf-8") as f:
             f.write('\ufeff')
-            f.write('#ID, RM\n')
+            f.write('#ID\tRM\n')
 
             for elem in elems:
                 f.write('{}\t{}\n'.format(elem[0], elem[1]))
@@ -233,7 +233,7 @@ def getAbilities(data, filename):
     else:
         with open('{}.txt'.format(filename), 'w', encoding="utf-8") as f:
             f.write('\ufeff')
-            f.write('#ID, Ability, Category_Name, Rarity, Rank, Category_ID\n')
+            f.write('#ID\tAbility\tCategory_Name\tRarity\tRank\tCategory_ID\n')
 
             for elem in elems:
                 f.write('{}\t{}\t{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
@@ -263,7 +263,7 @@ def getOrbs(data, filename):
     else:
         with open('{}.txt'.format(filename), 'w', encoding="utf-8") as f:
             f.write('\ufeff')
-            f.write('#ID, Orb, Rarity, Amount\n')
+            f.write('#ID\tOrb\tRarity\tAmount\n')
 
             for elem in elems:
                 f.write('{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[3]))
@@ -309,7 +309,7 @@ def getSBs(data, filename, n):
         if n == 0:
             with open('{}.txt'.format(filename), 'w', encoding="utf-8") as f:
                 f.write('\ufeff')
-                f.write('#ID, Soul Break, Character ID, Character, Type ID, Type\n')
+                f.write('#ID\tSoul Break\tCharacter ID\tCharacter\tType ID\tType\n')
 
                 for elem in elems:
                     f.write('{}\t{}\t{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
@@ -359,7 +359,7 @@ def getMagicite(data, filename):
     else:
         with open('{}.txt'.format(filename), 'w', encoding="utf-8") as f:
             f.write('\ufeff')
-            f.write('#ID, Name, Rarity, Level, Max Level, Element_id, Element')
+            f.write('#ID\tName\tRarity\tLevel\tMax Level\tElement_id\tElement')
 
             for elem in elems:
                 f.write('\n{}\t{}\t{}\t{}\t{}\t{}\t{}'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5],
@@ -453,7 +453,7 @@ def getVaultMagicite(data, filename):
     else:
         with open('{}.txt'.format(filename), 'w', encoding="utf-8") as f:
             f.write('\ufeff')
-            f.write('#ID, Name, Rarity, Level\n')
+            f.write('#ID\tName\tRarity\tLevel\n')
 
             for elem in elems:
                 f.write('{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[3]))
@@ -513,7 +513,7 @@ def getCharacters(data, filename):
         with open('{}.txt'.format(filename), 'w', encoding="utf-8") as f:
             f.write('\ufeff')
             f.write(
-                '#ID, Series,  Name, Job, Level, Max Level, Sphere Levels, HP, Accuracy, Attack, Defense, Magic, Resistance, Mind, Speed, Evasion\n')
+                '#ID\tSeries\tName\tJob\tLevel\tMax Level\tSphere Levels\tHP\tAccuracy\tAttack\tDefense\tMagic\tResistance\tMind\tSpeed\tEvasion\n')
 
             for elem in elems:
                 f.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
@@ -548,7 +548,7 @@ def getLMs(data, filename, n):
         if n == 0:
             with open('{}.txt'.format(filename), 'w', encoding="utf-8") as f:
                 f.write('\ufeff')
-                f.write('#ID, Character, LM Name, Effect\n')
+                f.write('#ID\tCharacter\tLM Name\tEffect\n')
                 for elem in elems:
                     f.write('{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[3]))
         else:
@@ -573,14 +573,14 @@ def getEquipHistory(data, filename):
     if depricated_comma_seperated_export:
         with open('{}.csv'.format(filename), 'w', encoding="utf-8") as f:
             f.write('\ufeff')
-            f.write('#ID, Name, Rarity,Acquired\n')
+            f.write('#ID, Name, Rarity, Acquired\n')
 
             for elem in elems:
                 f.write('"{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[4]))
     else:
         with open('{}.txt'.format(filename), 'w', encoding="utf-8") as f:
             f.write('\ufeff')
-            f.write('#ID, Name, Rarity,Acquired\n')
+            f.write('#ID\tName\tRarity\tAcquired\n')
 
             for elem in elems:
                 f.write('{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[4]))

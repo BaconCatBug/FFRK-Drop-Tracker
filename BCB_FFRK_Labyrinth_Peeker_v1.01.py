@@ -1,5 +1,5 @@
 import os
-from json import loads
+from json import loads, dump
 from re import findall, split
 from time import strftime
 from traceback import format_exc
@@ -39,6 +39,8 @@ def response(flow):
         return
     data = loads(flow.response.content.decode('utf-8-sig'))
     if case_map[flow.request.path] == 'ParseTheData':
+        with open('data.json', 'w', encoding='utf-8') as f:
+            dump(data, f, ensure_ascii=False, indent=4)
         if flush_old_data:
             cls()
         parseTreasure(data)
