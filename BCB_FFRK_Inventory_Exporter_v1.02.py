@@ -96,7 +96,7 @@ def response(flow):
 
 def getRelics(data, filename):
     elems = []
-
+    count = 0
     for elem in data:
         relic_id = elem['equipment_id']
         name = elem['name'].replace(u'＋', '+')
@@ -176,10 +176,10 @@ def getRelics(data, filename):
                             '{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[3],
                                                                                          elem[4], elem[5], elem[6], elem[7],
                                                                                          elem[8], elem[9], elem[10]))
-            else:
-                f.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[3],
-                                                                                    elem[4], elem[5], elem[6], elem[7],
-                                                                                    elem[8], elem[9], elem[10]))
+                    else:
+                        f.write('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[3],
+                                                                                            elem[4], elem[5], elem[6], elem[7],
+                                                                                            elem[8], elem[9], elem[10]))
 
 def getRMs(data, filename):
     elems = []
