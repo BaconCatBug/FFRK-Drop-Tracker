@@ -21,7 +21,7 @@ def response(flow):
         '/dff/party/list_other': 'list_other',
         '/dff/party/list_buddy?part=0&split=3': 'soul_breaks0',
         '/dff/party/list_buddy?part=1&split=3': 'soul_breaks1',
-        '/dff/party/list_buddy?part=2&split=3': 'soul_breaks1',
+        '/dff/party/list_buddy?part=2&split=3': 'soul_breaks2',
         '/dff/beast/list1': 'main_magicite1',
         '/dff/beast/list2': 'main_magicite2',
         '/dff/warehouse/get_equipment_list': 'vault_relic',
@@ -68,6 +68,11 @@ def response(flow):
         # getCharacters(data['buddies'], 'X-FFRK-Characters') #
         if export_raw_json == 1:
             exportRawJson(data, 'list_buddy','1')
+            
+    elif cases[flow.request.path] == 'soul_breaks2':
+        getSBs(data['soul_strikes'], '3-FFRK-Soul-Breaks',2)
+        if export_raw_json == 1:
+            exportRawJson(data, 'list_buddy','2')
 
     elif cases[flow.request.path] == 'list_other':
         getAbilities(data['abilities'], '4-FFRK-Abilities')
@@ -283,7 +288,6 @@ def getSBs(data, filename, n):
             category = teir[elem['soul_strike_category_id']]
         else:
             category = elem['soul_strike_category_name'].title()
-
         if ignore_crappy_core_soul_breaks == 1:
             if (category_id >= soul_break_export_level) and (
                     char_id == 10000200 or char_id >= 10004000 or char_id == 0):
@@ -307,16 +311,35 @@ def getSBs(data, filename, n):
                     f.write('"{}","{}","{}","{}","{}","{}"\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
     else:
         if n == 0:
-            with open('{}.txt'.format(filename), 'w', encoding="utf-8") as f:
+            with open('{}.txt'.format(str(filename)+str(n)), 'w', encoding="utf-8") as f:
                 f.write('\ufeff')
                 f.write('#ID\tSoul Break\tCharacter ID\tCharacter\tType ID\tType\n')
 
                 for elem in elems:
                     f.write('{}\t{}\t{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
         else:
-            with open('{}.txt'.format(filename), 'a', encoding="utf-8") as f:
+            with open('{}.txt'.format(str(filename)+str(n)), 'w', encoding="utf-8") as f:
                 for elem in elems:
                     f.write('{}\t{}\t{}\t{}\t{}\t{}\n'.format(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5]))
+    if path.exists('3-FFRK-Soul-Breaks0.txt') and path.exists('3-FFRK-Soul-Breaks1.txt') and path.exists('3-FFRK-Soul-Breaks2.txt'):
+        sbdata0 = sbdata1 = sbdata2 = ""
+        with open('3-FFRK-Soul-Breaks0.txt') as fp: 
+            sbdata0 = fp.read()
+        with open('3-FFRK-Soul-Breaks1.txt') as fp: 
+            sbdata1 = fp.read()
+        with open('3-FFRK-Soul-Breaks2.txt') as fp: 
+            sbdata2 = fp.read()
+        print(sbdata0)
+        print(sbdata1)
+        print(sbdata2)
+        sbdata0 += sbdata1
+        sbdata0 += sbdata2
+        with open ('3-FFRK-Soul-Breaks.txt', 'w') as fp: 
+            fp.write(sbdata0)
+        remove('3-FFRK-Soul-Breaks0.txt')
+        remove('3-FFRK-Soul-Breaks1.txt')
+        remove('3-FFRK-Soul-Breaks2.txt')
+    
 
 def getMagicite(data, filename):
     elems = []
